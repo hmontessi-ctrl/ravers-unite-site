@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ravers Unite | Electronic Music Events + Connections</title>
+    <title>Ravers Unite | Free Electronic Music Dating + Events</title>
     <link rel="icon" href="assets/ravers-unite-logo-smile.png" type="image/png" />
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -13,11 +13,11 @@
         <span class="brand-mark logo-crop" aria-hidden="true"></span>
         <span class="brand-text">
           <strong>Ravers Unite</strong>
-          <small>Events + Connections</small>
+          <small>Free 18+ Beta</small>
         </span>
       </a>
       <nav aria-label="Primary navigation">
-        <a href="#waitlist">Join</a>
+        <a href="#waitlist">Join Beta</a>
         <a href="#dating">Dating</a>
         <a href="#people">Connections</a>
         <a href="#events">Events</a>
@@ -38,16 +38,21 @@
           <div class="hero-logo-lockup" aria-label="Ravers Unite logo concept">
             <img class="hero-logo-image" src="assets/ravers-unite-logo-smile.png" alt="Ravers Unite smiling disco ball logo" />
           </div>
-          <p class="eyebrow">Community first. Dating and hookups by intent.</p>
+          <p class="eyebrow">Naples, SWFL + Miami beta is open</p>
           <h1>Date inside the scene.</h1>
-          <p class="hero-tagline">Electronic music events and connections.</p>
+          <p class="hero-tagline">A free 18+ electronic music community for dates, hookups, friends, and solo nights out.</p>
           <p>
-            Ravers Unite is a 100% free 18+ app for electronic music lovers. Find dates,
-            hookups, friends, solo buddies, and crews by favorite DJs, local events, venues,
-            genres, and clear intent.
+            Meet people who love the same DJs, events, clubs, and late-night energy.
+            Ravers Unite starts with a free beta waitlist, local events, favorite DJ filters,
+            and clear intent before anyone wastes a night guessing.
           </p>
+          <div class="hero-actions" aria-label="Launch actions">
+            <a class="primary-button" href="#waitlist">Join free beta</a>
+            <a class="ghost-button" href="#events">Explore events</a>
+          </div>
+          <p class="hero-note">100% free for users. Built for electronic music lovers, ravers, solo attendees, and friend groups.</p>
           <div class="search-card" aria-label="Scene finder">
-            <label for="city-search">Where are you going?</label>
+            <label for="city-search">Preview your scene</label>
             <div class="finder-grid">
               <div>
                 <span>City or festival</span>
@@ -71,7 +76,7 @@
                   <option>Festival crew</option>
                 </select>
               </div>
-              <button type="button" class="primary-button scene-button">Search</button>
+              <button type="button" class="primary-button scene-button">Preview</button>
             </div>
           </div>
           <div class="intent-tabs" aria-label="Connection intent">
@@ -99,32 +104,33 @@
         </div>
       </section>
 
-      <section class="stats-strip" aria-label="Prototype metrics">
+      <section class="stats-strip" aria-label="Launch highlights">
         <article>
           <strong>100%</strong>
           <span>free for users</span>
         </article>
         <article>
-          <strong>5</strong>
-          <span>match intents</span>
+          <strong>18+</strong>
+          <span>adults-only community</span>
         </article>
         <article>
-          <strong>18</strong>
-          <span>genres tracked</span>
+          <strong>SWFL</strong>
+          <span>Naples, Fort Myers, Miami</span>
         </article>
         <article>
-          <strong>10</strong>
-          <span>local venues watchlisted</span>
+          <strong>Live</strong>
+          <span>waitlist connected</span>
         </article>
       </section>
 
       <section class="section waitlist-section" id="waitlist">
         <div class="section-heading">
-          <p class="eyebrow">Free beta</p>
-          <h2>Start with the public website and waitlist.</h2>
+          <p class="eyebrow">Free beta is live</p>
+          <h2>Join the first wave of Ravers Unite.</h2>
           <p>
-            The first real launch move is simple: collect early users in Naples, Fort Myers,
-            and Miami, then invite them into OAuth profiles once the Supabase backend is live.
+            We are starting in Naples, Fort Myers, and Miami, then growing city by city.
+            Join early to help shape the event feed, favorite DJ filters, solo buddy flow,
+            and dating experience before the full app opens.
           </p>
         </div>
         <div class="waitlist-layout">
@@ -171,17 +177,17 @@
             </label>
             <button class="primary-button" type="submit">Join the beta</button>
             <p class="form-status waitlist-status">
-              Prototype mode: saved in this browser until Supabase is connected.
+              Live waitlist: your signup saves to the Ravers Unite database.
             </p>
           </form>
           <article class="foundation-card">
-            <span>Production foundation</span>
-            <h3>What this unlocks next</h3>
+            <span>Why join early</span>
+            <h3>Help build the scene map</h3>
             <ul>
-              <li>One-button Google and Apple login.</li>
-              <li>Real 18+ profiles saved to Supabase.</li>
-              <li>Local events and DJ submissions in an approval queue.</li>
-              <li>Ticket click tracking that can become partner reporting.</li>
+              <li>Get the first invite when profiles open.</li>
+              <li>Tell us which local events and DJs matter.</li>
+              <li>Help shape dating, hookup, solo buddy, and friend filters.</li>
+              <li>Early members get launch perks and sticker drops.</li>
             </ul>
           </article>
         </div>
@@ -192,8 +198,8 @@
           <p class="eyebrow">Dating + hookups</p>
           <h2>Meet someone who wants the same night you do.</h2>
           <p>
-            The dating side should be obvious: users choose their intent up front, then match by
-            music taste, favorite DJs, events, venues, location, relationship style, and boundaries.
+            Dating is clear from the start: choose your intent, then match by music taste,
+            favorite DJs, events, venues, location, relationship style, and boundaries.
           </p>
         </div>
         <div class="dating-grid">
@@ -554,9 +560,7 @@
                 <textarea name="notes" rows="4" placeholder="Cover charge, set time, solo-friendly details, dress code, or meetup vibe."></textarea>
               </label>
               <button class="primary-button" type="submit">Submit event</button>
-              <p class="form-status event-submit-status">
-                Prototype mode: submissions save locally until Supabase is connected.
-              </p>
+              <p class="form-status event-submit-status">Live submission queue: saved to Ravers Unite for review.</p>
             </form>
           </details>
         </div>
@@ -650,7 +654,7 @@
         <button class="primary-button profile-toggle-inline" type="button">Build my profile</button>
       </section>
 
-      <section class="section analytics-section" id="ticket-tracking">
+      <section class="section analytics-section internal-section" id="ticket-tracking" hidden>
         <div class="section-heading">
           <p class="eyebrow">Ticket attribution</p>
           <h2>Know which ticket sales came from Ravers Unite.</h2>
@@ -1145,7 +1149,7 @@
         </div>
       </section>
 
-      <section class="section build-roadmap-section" id="build-roadmap">
+      <section class="section build-roadmap-section internal-section" id="build-roadmap" hidden>
         <div class="section-heading">
           <p class="eyebrow">Website to working app</p>
           <h2>Launch the website first, then turn it into the working app.</h2>
@@ -1580,7 +1584,7 @@
           <button class="ghost-button oauth-button" type="button" data-provider="apple">Continue with Apple</button>
         </div>
         <p class="form-status auth-status">
-          Prototype mode: OAuth activates after Supabase keys and providers are configured.
+          Login is next: Google and Apple profiles open after beta invites.
         </p>
       </div>
       <form class="profile-form">

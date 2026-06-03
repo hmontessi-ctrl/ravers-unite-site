@@ -340,6 +340,29 @@ p {
   line-height: 1.15;
 }
 
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.hero-actions .primary-button,
+.hero-actions .ghost-button {
+  display: inline-grid;
+  min-width: 154px;
+  min-height: 48px;
+  place-items: center;
+  padding: 0 18px;
+}
+
+.hero-note {
+  max-width: 620px;
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 0.96rem;
+}
+
 .search-card {
   display: grid;
   gap: 14px;
@@ -595,6 +618,10 @@ select option {
 
 .form-status[data-state="error"] {
   color: var(--pink);
+}
+
+.internal-section[hidden] {
+  display: none;
 }
 
 .section,
