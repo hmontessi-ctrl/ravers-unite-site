@@ -18,6 +18,8 @@ const waitlistForm = document.querySelector(".waitlist-form");
 const waitlistStatus = document.querySelector(".waitlist-status");
 const eventSubmitForm = document.querySelector(".event-submit-form");
 const eventSubmitStatus = document.querySelector(".event-submit-status");
+const businessInquiryForm = document.querySelector(".business-inquiry-form");
+const businessInquiryStatus = document.querySelector(".business-inquiry-status");
 const localEventDetails = document.querySelector(".local-event-details");
 const profileForm = document.querySelector(".profile-form");
 const oauthButtons = document.querySelectorAll(".oauth-button");
@@ -460,6 +462,45 @@ eventSubmitForm?.addEventListener("submit", async (event) => {
     eventSubmitForm.reset();
   } catch (error) {
     setStatus(eventSubmitStatus, "Could not submit yet. Check the Supabase table and RLS policy.", "error");
+  }
+});
+
+businessInquiryForm?.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const data = new FormData(businessInquiryForm);
+  const payload = {
+    contact_name: String(data.get("contactName") || "").trim(),
+    email: String(data.get("email") || "").trim(),
+    business_name: String(data.get("businessName") || "").trim(),
+    city: String(data.get("city") || "").trim(),
+    business_type: String(data.get("businessType") || "").trim(),
+    website_url: String(data.get("websiteUrl") || "").trim(),
+    offer_details: String(data.get("offerDetails") || "").trim(),
+    best_fit: String(data.get("bestFit") || "").trim(),
+    source: "public_partner_form",
+  };
+
+  if (!payload.contact_name || !payload.email || !payload.business_name || !payload.business_type || !payload.offer_details) {
+    setStatus(businessInquiryStatus, "Add your name, email, business, type, and what you want showcased.", "error");
+    return;
+  }
+
+  setStatus(businessInquiryStatus, "Saving showcase request...");
+
+  try {
+    const result = await insertSupabaseRow("business_inquiries", payload);
+
+    if (result.synced) {
+      setStatus(businessInquiryStatus, "Submitted. We will review it for the partner showcase queue.", "success");
+    } else {
+      saveLocalRecord("raversUniteBusinessInquiries", payload);
+      setStatus(businessInquiryStatus, "Saved in this browser. Add Supabase keys to sync partner requests.", "success");
+    }
+
+    showToast("Business showcase request submitted.");
+    businessInquiryForm.reset();
+  } catch (error) {
+    setStatus(businessInquiryStatus, "Could not submit yet. Check the Supabase table and RLS policy.", "error");
   }
 });
 
