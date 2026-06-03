@@ -1,0 +1,1736 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ravers Unite | Electronic Music Events + Connections</title>
+    <link rel="icon" href="assets/ravers-unite-logo-smile.png" type="image/png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="brand" href="#top" aria-label="Ravers Unite home">
+        <span class="brand-mark logo-crop" aria-hidden="true"></span>
+        <span class="brand-text">
+          <strong>Ravers Unite</strong>
+          <small>Events + Connections</small>
+        </span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#waitlist">Join</a>
+        <a href="#dating">Dating</a>
+        <a href="#people">Connections</a>
+        <a href="#events">Events</a>
+        <a href="#solo">Solo</a>
+        <a href="#scene-guide">Clubs</a>
+        <a href="#local-djs">DJs</a>
+        <a href="#marketplace">Shop</a>
+        <a href="#safety">Safety</a>
+      </nav>
+      <button class="icon-button profile-toggle" type="button" aria-label="Open profile builder">
+        <span aria-hidden="true">+</span>
+      </button>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="hero-logo-lockup" aria-label="Ravers Unite logo concept">
+            <img class="hero-logo-image" src="assets/ravers-unite-logo-smile.png" alt="Ravers Unite smiling disco ball logo" />
+          </div>
+          <p class="eyebrow">Community first. Dating and hookups by intent.</p>
+          <h1>Date inside the scene.</h1>
+          <p class="hero-tagline">Electronic music events and connections.</p>
+          <p>
+            Ravers Unite is a 100% free 18+ app for electronic music lovers. Find dates,
+            hookups, friends, solo buddies, and crews by favorite DJs, local events, venues,
+            genres, and clear intent.
+          </p>
+          <div class="search-card" aria-label="Scene finder">
+            <label for="city-search">Where are you going?</label>
+            <div class="finder-grid">
+              <div>
+                <span>City or festival</span>
+                <input id="city-search" type="text" value="Miami" />
+              </div>
+              <div>
+                <span>When</span>
+                <select aria-label="When">
+                  <option>This weekend</option>
+                  <option>Tonight</option>
+                  <option>Next 30 days</option>
+                  <option>Festival season</option>
+                </select>
+              </div>
+              <div>
+                <span>Looking for</span>
+                <select aria-label="Looking for">
+                  <option>Dates, hookups, friends</option>
+                  <option>Hookups</option>
+                  <option>Real date</option>
+                  <option>Festival crew</option>
+                </select>
+              </div>
+              <button type="button" class="primary-button scene-button">Search</button>
+            </div>
+          </div>
+          <div class="intent-tabs" aria-label="Connection intent">
+            <button class="intent-tab active" type="button" data-filter="all">All</button>
+            <button class="intent-tab" type="button" data-filter="crew">Crew</button>
+            <button class="intent-tab" type="button" data-filter="friends">Friends</button>
+            <button class="intent-tab" type="button" data-filter="dating">Dating</button>
+            <button class="intent-tab spicy" type="button" data-filter="hookups">Hookups</button>
+          </div>
+        </div>
+        <div class="hero-media">
+          <img src="assets/pulsecrew/hero-rave-community.png" alt="Friends connecting at an electronic music event" />
+          <div class="hero-panel">
+            <span class="live-dot"></span>
+            <strong>342</strong>
+            <span>ravers active near Miami tonight</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="definition-band" aria-label="Raver definition">
+        <div>
+          <p class="eyebrow">What is a raver?</p>
+          <h2>Someone who connects through electronic music, dancefloors, events, and the shared energy of the scene.</h2>
+        </div>
+      </section>
+
+      <section class="stats-strip" aria-label="Prototype metrics">
+        <article>
+          <strong>100%</strong>
+          <span>free for users</span>
+        </article>
+        <article>
+          <strong>5</strong>
+          <span>match intents</span>
+        </article>
+        <article>
+          <strong>18</strong>
+          <span>genres tracked</span>
+        </article>
+        <article>
+          <strong>10</strong>
+          <span>local venues watchlisted</span>
+        </article>
+      </section>
+
+      <section class="section waitlist-section" id="waitlist">
+        <div class="section-heading">
+          <p class="eyebrow">Free beta</p>
+          <h2>Start with the public website and waitlist.</h2>
+          <p>
+            The first real launch move is simple: collect early users in Naples, Fort Myers,
+            and Miami, then invite them into OAuth profiles once the Supabase backend is live.
+          </p>
+        </div>
+        <div class="waitlist-layout">
+          <form class="app-form-card waitlist-form">
+            <div class="form-card-heading">
+              <span>Early access</span>
+              <h3>Join Ravers Unite free</h3>
+            </div>
+            <div class="form-grid-two">
+              <label>
+                Email
+                <input name="email" type="email" placeholder="you@example.com" required />
+              </label>
+              <label>
+                Name
+                <input name="displayName" type="text" placeholder="What should we call you?" />
+              </label>
+            </div>
+            <div class="form-grid-two">
+              <label>
+                Home scene
+                <select name="city">
+                  <option>Naples</option>
+                  <option>Fort Myers</option>
+                  <option>Miami</option>
+                  <option>Visiting Florida</option>
+                  <option>Somewhere else</option>
+                </select>
+              </label>
+              <label>
+                Main reason
+                <select name="intent">
+                  <option>Dating and connections</option>
+                  <option>Hookups by mutual intent</option>
+                  <option>Going solo buddies</option>
+                  <option>Local events</option>
+                  <option>DJs and music discovery</option>
+                </select>
+              </label>
+            </div>
+            <label>
+              Favorite DJs or sound
+              <input name="favoriteDjs" type="text" placeholder="Mochakk, tech house, sunrise sets..." />
+            </label>
+            <button class="primary-button" type="submit">Join the beta</button>
+            <p class="form-status waitlist-status">
+              Prototype mode: saved in this browser until Supabase is connected.
+            </p>
+          </form>
+          <article class="foundation-card">
+            <span>Production foundation</span>
+            <h3>What this unlocks next</h3>
+            <ul>
+              <li>One-button Google and Apple login.</li>
+              <li>Real 18+ profiles saved to Supabase.</li>
+              <li>Local events and DJ submissions in an approval queue.</li>
+              <li>Ticket click tracking that can become partner reporting.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section dating-section" id="dating">
+        <div class="section-heading">
+          <p class="eyebrow">Dating + hookups</p>
+          <h2>Meet someone who wants the same night you do.</h2>
+          <p>
+            The dating side should be obvious: users choose their intent up front, then match by
+            music taste, favorite DJs, events, venues, location, relationship style, and boundaries.
+          </p>
+        </div>
+        <div class="dating-grid">
+          <article class="dating-card">
+            <span>Date mode</span>
+            <h3>Find a date for the next set</h3>
+            <p>Match with people who like the same sound, want the same event, and are open to a real date.</p>
+          </article>
+          <article class="dating-card">
+            <span>Hookup mode</span>
+            <h3>Mutual intent only</h3>
+            <p>Hookup interest appears when both people choose it, keeping the app clear without making it crude.</p>
+          </article>
+          <article class="dating-card">
+            <span>Event chemistry</span>
+            <h3>See who is going</h3>
+            <p>Every event can show potential matches, solo buddies, and people with overlapping favorite DJs.</p>
+          </article>
+          <article class="dating-card">
+            <span>18+ clarity</span>
+            <h3>Boundaries before DMs</h3>
+            <p>Relationship style, orientation, pace, and dealbreakers are part of the profile, not hidden in bios.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section scene-guide-section" id="scene-guide">
+        <div class="section-heading">
+          <p class="eyebrow">Scene Guide</p>
+          <h2>Your local rave map starts with the rooms that shape the sound.</h2>
+          <p>
+            Follow top clubs, see what kind of music they book, find solo-friendly nights,
+            and jump from a venue to events, crews, and ticket links.
+          </p>
+        </div>
+        <div class="guide-tabs" aria-label="Scene guide tabs">
+          <button class="guide-tab active" type="button" data-guide="clubs">Top clubs</button>
+          <button class="guide-tab" type="button" data-guide="local-events">Local events</button>
+        </div>
+        <div class="guide-panel active" data-guide-panel="clubs">
+          <article class="club-card">
+            <span class="club-rank">01</span>
+            <h3>Club Space</h3>
+            <p>House, techno, sunrise sets, terrace culture, and serious late-night energy.</p>
+            <div class="club-meta">
+              <span>Best for: sunrise</span>
+              <span>Solo-friendly</span>
+              <span>Ticket links</span>
+            </div>
+          </article>
+          <article class="club-card">
+            <span class="club-rank">02</span>
+            <h3>Factory Town</h3>
+            <p>Large-scale open-air events, festival energy, big crews, and multi-stage nights.</p>
+            <div class="club-meta">
+              <span>Best for: crews</span>
+              <span>House + techno</span>
+              <span>Outdoor</span>
+            </div>
+          </article>
+          <article class="club-card">
+            <span class="club-rank">03</span>
+            <h3>Floyd</h3>
+            <p>Smaller room, intimate sound, deep cuts, and better conversations before the set.</p>
+            <div class="club-meta">
+              <span>Best for: dates</span>
+              <span>Intimate</span>
+              <span>Dope Vibes</span>
+            </div>
+          </article>
+          <article class="club-card">
+            <span class="club-rank">04</span>
+            <h3>1-800-Lucky</h3>
+            <p>Day parties, food hall meetups, casual crews, and easy first-event energy.</p>
+            <div class="club-meta">
+              <span>Best for: first meetup</span>
+              <span>Day party</span>
+              <span>Free events</span>
+            </div>
+          </article>
+        </div>
+        <div class="guide-panel" data-guide-panel="local-events">
+          <article class="club-card">
+            <span class="club-rank">Fri</span>
+            <h3>Mochakk & Bambounou</h3>
+            <p>Club Space Miami • May 22 • DICE ticket link active.</p>
+            <div class="club-meta">
+              <span>House</span>
+              <span>86 going</span>
+              <span>Solo requests</span>
+            </div>
+          </article>
+          <article class="club-card">
+            <span class="club-rank">Sun</span>
+            <h3>Humans Alike Sundays</h3>
+            <p>1-800-Lucky • May 24 • Free Sunday event and solo-friendly crew meetup.</p>
+            <div class="club-meta">
+              <span>House party</span>
+              <span>38 going</span>
+              <span>Public meetup</span>
+            </div>
+          </article>
+          <article class="club-card muted-card">
+            <span class="club-rank">+</span>
+            <h3>Add more local events</h3>
+            <p>Future version should import from DICE, promoters, venue calendars, and approved partner feeds.</p>
+            <div class="club-meta">
+              <span>DICE</span>
+              <span>Promoters</span>
+              <span>Venue feeds</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section local-launch-section" id="naples-launch">
+        <div class="section-heading">
+          <p class="eyebrow">Local Launch</p>
+          <h2>Start with Naples, Fort Myers, and Miami.</h2>
+          <p>
+            Before going nationwide, Ravers Unite can win locally by connecting Naples and Fort Myers
+            friends with Southwest Florida events and the bigger Miami scene.
+          </p>
+        </div>
+        <div class="local-launch-grid">
+          <article class="local-launch-card">
+            <span>Home base</span>
+            <h3>Naples, FL</h3>
+            <p>Start with your friends, local group chats, DJs, promoters, and people who travel for shows.</p>
+          </article>
+          <article class="local-launch-card">
+            <span>Nearby scenes</span>
+            <h3>Fort Myers + SWFL</h3>
+            <p>Fort Myers, Bonita Springs, Cape Coral, Marco Island, and local promoter nights.</p>
+          </article>
+          <article class="local-launch-card">
+            <span>Major scene</span>
+            <h3>Miami</h3>
+            <p>Club Space, Factory Town, Floyd, 1-800-Lucky, festivals, and bigger DICE ticket opportunities.</p>
+          </article>
+          <article class="local-launch-card">
+            <span>First goal</span>
+            <h3>100 local signups</h3>
+            <p>Invite friends first, then add local event pages, solo meetups, DJ profiles, and ticket links.</p>
+          </article>
+        </div>
+        <div class="local-event-list">
+          <article>
+            <strong>Add Naples event</strong>
+            <span>Manual admin entry first: event name, venue, DJ, date, ticket link, and who is going.</span>
+          </article>
+          <article>
+            <strong>Friend invite code</strong>
+            <span>Use a Naples beta code so you can track who joins from your local network.</span>
+          </article>
+          <article>
+            <strong>Road trip mode</strong>
+            <span>Show Miami, Fort Myers, Factory Town, Club Space, Tampa, Orlando, and festival events near Naples users.</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="events">
+        <div class="section-heading">
+          <p class="eyebrow">Tonight and next up</p>
+          <h2>Event-based community is the engine.</h2>
+        </div>
+        <div class="quick-actions" aria-label="Quick actions">
+          <button type="button">Near me</button>
+          <button type="button">Tonight</button>
+          <button type="button">House</button>
+          <button type="button">Techno</button>
+          <button type="button">DICE</button>
+          <button type="button">Verified crews</button>
+        </div>
+        <div class="event-grid">
+          <article class="event-card hot" data-genre="house techno" data-intent="crew dating hookups friends">
+            <div class="event-date">
+              <span>Fri</span>
+              <strong>22</strong>
+            </div>
+            <div>
+              <p class="tag">DICE • Selling fast</p>
+              <h3>Mochakk & Bambounou</h3>
+              <p>Club Space Miami • 11:00 PM • From $40</p>
+              <div class="avatar-stack" aria-label="People going">
+                <span>MJ</span><span>Lo</span><span>Av</span><span>+86</span>
+              </div>
+            </div>
+            <div class="event-actions">
+              <button class="ghost-button join-button" type="button">Going</button>
+              <a class="ticket-link" href="https://dice.fm/event/l85qgw-mochakk-bambounou-22nd-may-club-space-miami-miami-tickets?utm_source=raversunite&utm_medium=app&utm_campaign=miami_events&utm_content=mochakk_bambounou" target="_blank" rel="noopener" data-event="Mochakk & Bambounou">Get tickets</a>
+            </div>
+          </article>
+
+          <article class="event-card" data-genre="house" data-intent="crew friends dating">
+            <div class="event-date">
+              <span>Sun</span>
+              <strong>24</strong>
+            </div>
+            <div>
+              <p class="tag">DICE • Free</p>
+              <h3>Humans Alike Sundays</h3>
+              <p>1-800-Lucky • 12:00 PM • House party</p>
+              <div class="avatar-stack" aria-label="People going">
+                <span>Ro</span><span>Iz</span><span>Ny</span><span>+38</span>
+              </div>
+            </div>
+            <div class="event-actions">
+              <button class="ghost-button join-button" type="button">Going</button>
+              <a class="ticket-link" href="https://dice.fm/event/dk8qpe-humans-alike-sundays-24th-may-1-800-lucky-miami-tickets?lng=en-CA&utm_source=raversunite&utm_medium=app&utm_campaign=miami_events&utm_content=humans_alike_sundays" target="_blank" rel="noopener" data-event="Humans Alike Sundays">Get tickets</a>
+            </div>
+          </article>
+
+          <article class="event-card partner-card" data-genre="house techno minimal bass" data-intent="crew dating hookups friends">
+            <div class="event-date">
+              <span>Live</span>
+              <strong>+</strong>
+            </div>
+            <div>
+              <p class="tag">Ticket partner ready</p>
+              <h3>More Miami events from DICE</h3>
+              <p>Connect a DICE partner feed or affiliate campaign and route ticket purchases through tracked outbound links.</p>
+              <div class="avatar-stack" aria-label="People going">
+                <span>API</span><span>UTM</span><span>CPA</span>
+              </div>
+            </div>
+            <div class="event-actions">
+              <button class="ghost-button join-button" type="button">Watchlist</button>
+              <a class="ticket-link" href="https://dice.fm/venue/club-space-miami-wlav?lng=en-US&utm_source=raversunite&utm_medium=app&utm_campaign=partner_discovery" target="_blank" rel="noopener" data-event="DICE venue discovery">Open DICE</a>
+            </div>
+          </article>
+        </div>
+        <div class="naples-events-panel" aria-label="Naples local DJ event watchlist">
+          <div>
+            <p class="eyebrow">Naples + SWFL local watchlist</p>
+            <h3>Local spots to watch for DJs, music nights, and scene meetups.</h3>
+            <p>
+              Start by listing the local spots, then let venues, DJs, promoters, and friends submit confirmed dates.
+            </p>
+          </div>
+          <div class="naples-venue-grid">
+            <article class="naples-venue-card">
+              <span>Naples, FL</span>
+              <h4>Seed to Table</h4>
+              <p>Watch for DJ nights, live music, social nights, and casual group meetups.</p>
+              <button class="ghost-button join-button" type="button">Watch venue</button>
+            </article>
+            <article class="naples-venue-card">
+              <span>Naples, FL</span>
+              <h4>Aqua</h4>
+              <p>Add confirmed DJ sets, lounge nights, and dinner-to-dance plans when announced.</p>
+              <button class="ghost-button join-button" type="button">Watch venue</button>
+            </article>
+            <article class="naples-venue-card">
+              <span>Naples, FL</span>
+              <h4>La Trattoria</h4>
+              <p>Track patio music, social nights, and any DJ-led events that fit the scene.</p>
+              <button class="ghost-button join-button" type="button">Watch venue</button>
+            </article>
+            <article class="naples-venue-card">
+              <span>Naples, FL</span>
+              <h4>NatNat</h4>
+              <p>Use this as a local submission slot for pop-ups, DJs, and friend-group plans.</p>
+              <button class="ghost-button join-button" type="button">Watch venue</button>
+            </article>
+            <article class="naples-venue-card">
+              <span>Naples, FL</span>
+              <h4>Millennium</h4>
+              <p>Naples watchlist spot for DJ nights, social events, and confirmed electronic-friendly plans.</p>
+              <button class="ghost-button join-button" type="button">Watch venue</button>
+            </article>
+            <article class="naples-venue-card">
+              <span>Naples, FL</span>
+              <h4>Waxin's</h4>
+              <p>Naples venue to watch for DJ sets, nightlife plans, and confirmed local music nights.</p>
+              <button class="ghost-button join-button" type="button">Watch venue</button>
+            </article>
+            <article class="naples-venue-card">
+              <span>Fort Myers, FL</span>
+              <h4>Hogwash</h4>
+              <p>Downtown Fort Myers spot to watch for DJ nights, lounge meetups, and after-dinner plans.</p>
+              <button class="ghost-button join-button" type="button">Watch venue</button>
+            </article>
+            <article class="naples-venue-card">
+              <span>Fort Myers, FL</span>
+              <h4>Sidney's Rooftop</h4>
+              <p>Good SWFL candidate for house, tech house, deep house, and rooftop meetup nights.</p>
+              <button class="ghost-button join-button" type="button">Watch venue</button>
+            </article>
+            <article class="naples-venue-card">
+              <span>Fort Myers, FL</span>
+              <h4>Bay Street Yard</h4>
+              <p>Downtown venue to track for tech house, EDM pop-ups, casual crews, and local DJs.</p>
+              <button class="ghost-button join-button" type="button">Watch venue</button>
+            </article>
+            <article class="naples-venue-card">
+              <span>Fort Myers, FL</span>
+              <h4>Celsius Nightclub</h4>
+              <p>Nightclub watchlist spot for confirmed EDM nights, DJ takeovers, and late-night plans.</p>
+              <button class="ghost-button join-button" type="button">Watch venue</button>
+            </article>
+          </div>
+          <div class="local-submit-strip">
+            <strong>Local event submission flow</strong>
+            <span>Venue or friend submits event name, DJ, date, music style, cover or ticket link, and meetup vibe.</span>
+            <button class="primary-button local-event-submit" type="button">Open event form</button>
+          </div>
+          <details class="submission-details local-event-details">
+            <summary>Submit a local event, venue night, or DJ booking</summary>
+            <form class="app-form-card event-submit-form">
+              <div class="form-grid-two">
+                <label>
+                  Your name
+                  <input name="contactName" type="text" placeholder="Promoter, venue, DJ, or friend" required />
+                </label>
+                <label>
+                  Email
+                  <input name="email" type="email" placeholder="you@example.com" required />
+                </label>
+              </div>
+              <div class="form-grid-two">
+                <label>
+                  Venue
+                  <input name="venue" type="text" placeholder="Seed to Table, Hogwash, Factory Town..." required />
+                </label>
+                <label>
+                  City
+                  <input name="city" type="text" placeholder="Naples, Fort Myers, Miami" required />
+                </label>
+              </div>
+              <div class="form-grid-two">
+                <label>
+                  Event name
+                  <input name="eventName" type="text" placeholder="House night, rooftop set, afters..." required />
+                </label>
+                <label>
+                  Date
+                  <input name="eventDate" type="date" />
+                </label>
+              </div>
+              <div class="form-grid-two">
+                <label>
+                  DJ names
+                  <input name="djNames" type="text" placeholder="Local DJs or headliners" />
+                </label>
+                <label>
+                  Genre or vibe
+                  <input name="genres" type="text" placeholder="Tech house, minimal, afro house..." />
+                </label>
+              </div>
+              <label>
+                Ticket or event link
+                <input name="ticketUrl" type="url" placeholder="https://..." />
+              </label>
+              <label>
+                Notes
+                <textarea name="notes" rows="4" placeholder="Cover charge, set time, solo-friendly details, dress code, or meetup vibe."></textarea>
+              </label>
+              <button class="primary-button" type="submit">Submit event</button>
+              <p class="form-status event-submit-status">
+                Prototype mode: submissions save locally until Supabase is connected.
+              </p>
+            </form>
+          </details>
+        </div>
+        <p class="source-note">
+          Event seed is based on public DICE Miami listings checked May 21, 2026. In production,
+          Ravers Unite should ingest events through an official partner feed, approved affiliate links,
+          venue submissions, promoter submissions, verified local admin posts, and SWFL venue watchlists.
+        </p>
+      </section>
+
+      <section class="split-section" id="solo">
+        <div class="section-heading">
+          <p class="eyebrow">Going solo</p>
+          <h2>No one should have to miss the set because their friends bailed, they are new in town, or they are visiting.</h2>
+          <p>
+            Solo mode helps people find a buddy, small crew, rideshare, or a public meetup
+            before they commit to going.
+          </p>
+        </div>
+        <div class="solo-layout">
+          <article class="solo-card urgent">
+            <div class="solo-topline">
+              <span>Tonight</span>
+              <strong>Needs buddy</strong>
+            </div>
+            <h3>Maya wants to see Mochakk & Bambounou</h3>
+            <p>Looking for one or two verified people to meet outside Club Space and stick together through the first set.</p>
+            <div class="solo-tags">
+              <span>House</span><span>Public meetup</span><span>Verified only</span>
+            </div>
+            <button type="button" class="primary-button buddy-button">Offer to go together</button>
+          </article>
+          <article class="solo-card">
+            <div class="solo-topline">
+              <span>Sunday</span>
+              <strong>Open crew</strong>
+            </div>
+            <h3>Humans Alike brunch crew</h3>
+            <p>Casual Sunday group for people showing up solo, meeting by the 1-800-Lucky entrance.</p>
+            <div class="solo-tags">
+              <span>Free event</span><span>Public meetup</span><span>5 spots</span>
+            </div>
+            <button type="button" class="primary-button buddy-button">Join solo crew</button>
+          </article>
+          <article class="solo-card">
+            <div class="solo-topline">
+              <span>Any event</span>
+              <strong>Start request</strong>
+            </div>
+            <h3>Create a solo signal</h3>
+            <p>Tell the app what event you want to attend, your comfort level, and whether you want a buddy, group, or date.</p>
+            <div class="solo-tags">
+              <span>Buddy</span><span>Crew</span><span>Date</span><span>Rideshare</span>
+            </div>
+            <button type="button" class="primary-button buddy-button">Create solo request</button>
+          </article>
+        </div>
+      </section>
+
+      <section class="section onboarding-section" id="join">
+        <div class="section-heading">
+          <p class="eyebrow">First user flow</p>
+          <h2>Join in under two minutes, then start matching by music and intent.</h2>
+          <p>
+            This is the first real app flow: confirm 18+, choose what you want, add your music taste,
+            pick local scenes, and create a profile that powers matches.
+          </p>
+        </div>
+        <div class="onboarding-preview">
+          <article class="flow-card active">
+            <span>01</span>
+            <h3>Confirm 18+</h3>
+            <p>Keep the community adults-only before profiles, hookups, or messages appear.</p>
+          </article>
+          <article class="flow-card">
+            <span>02</span>
+            <h3>Choose intent</h3>
+            <p>Dates, mutual hookups, friends, solo buddy, crew, or exploring.</p>
+          </article>
+          <article class="flow-card">
+            <span>03</span>
+            <h3>Add your sound</h3>
+            <p>Favorite genres, DJs, venues, and events become the matching engine.</p>
+          </article>
+          <article class="flow-card">
+            <span>04</span>
+            <h3>Start matching</h3>
+            <p>Connect through a person, an event, a DJ, or a solo plan.</p>
+          </article>
+        </div>
+        <button class="primary-button profile-toggle-inline" type="button">Build my profile</button>
+      </section>
+
+      <section class="section analytics-section" id="ticket-tracking">
+        <div class="section-heading">
+          <p class="eyebrow">Ticket attribution</p>
+          <h2>Know which ticket sales came from Ravers Unite.</h2>
+          <p>
+            Track outbound ticket clicks now, then reconcile actual purchases through a DICE partner
+            report, affiliate postback, or server-to-server webhook.
+          </p>
+        </div>
+        <div class="analytics-grid">
+          <article class="metric-card">
+            <span>Ticket clicks</span>
+            <strong class="ticket-click-count">0</strong>
+            <p>Prototype counter for outbound ticket interest.</p>
+          </article>
+          <article class="metric-card">
+            <span>Tracked purchases</span>
+            <strong>Partner feed</strong>
+            <p>Actual sales require DICE affiliate reporting, webhook, or payout dashboard.</p>
+          </article>
+          <article class="metric-card">
+            <span>Recommended link format</span>
+            <strong>UTM + referral ID</strong>
+            <p>Example: source=raversunite, campaign=miami_events, content=event_slug.</p>
+          </article>
+        </div>
+        <div class="tracking-flow" aria-label="Ticket tracking flow">
+          <article>
+            <strong>1</strong>
+            <span>User taps Get tickets</span>
+          </article>
+          <article>
+            <strong>2</strong>
+            <span>Ravers Unite logs click + event ID</span>
+          </article>
+          <article>
+            <strong>3</strong>
+            <span>DICE receives referral parameters</span>
+          </article>
+          <article>
+            <strong>4</strong>
+            <span>Partner report confirms purchases and commission</span>
+          </article>
+        </div>
+        <div class="dice-dashboard" aria-label="DICE partner proof dashboard">
+          <article>
+            <span>Event import goal</span>
+            <strong>All local DICE events</strong>
+            <p>Import through an official DICE partner feed/API or approved promoter/admin dashboard.</p>
+          </article>
+          <article>
+            <span>Proof for DICE</span>
+            <strong>Clicks → purchases</strong>
+            <p>Show DICE how many users discovered events here, clicked tickets, and completed purchases.</p>
+          </article>
+          <article>
+            <span>Partner metrics</span>
+            <strong>Conversion + revenue</strong>
+            <p>Track referral code, event ID, city, source section, confirmed sale, and commission.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section marketplace-section" id="marketplace">
+        <div class="section-heading">
+          <p class="eyebrow">Free for users</p>
+          <h2>Make money by helping ravers show up prepared.</h2>
+          <p>
+            Ravers Unite stays free. Revenue comes from ticket referrals, rave essentials,
+            sponsored event placement, promoter tools, and brand partnerships.
+          </p>
+        </div>
+        <div class="marketplace-grid">
+          <article class="shop-card featured">
+            <span class="shop-label">First collection</span>
+            <h3>Rave Essentials</h3>
+            <p>Curated gear for shows, festivals, and solo nights out.</p>
+            <div class="shop-tags">
+              <span>Hydration packs</span>
+              <span>Phone tethers</span>
+              <span>Earplugs</span>
+              <span>Fans: fan please, no clacking 😂</span>
+            </div>
+            <button class="primary-button shop-button" type="button">Build collection</button>
+          </article>
+          <article class="shop-card">
+            <span class="shop-label">Merch</span>
+            <h3>Ravers Unite Apparel</h3>
+            <p>Launch with print-on-demand tees, hoodies, hats, pashminas, and limited city drops.</p>
+            <button class="ghost-button shop-button" type="button">Plan drop</button>
+          </article>
+          <article class="shop-card">
+            <span class="shop-label">Accessories</span>
+            <h3>Anti-Lost Phone Gear</h3>
+            <p>Phone straps, cases, tethers, lanyards, anti-theft bags, and portable chargers.</p>
+            <button class="ghost-button shop-button" type="button">Find partners</button>
+          </article>
+          <article class="shop-card">
+            <span class="shop-label">Brand partners</span>
+            <h3>Sponsor A Scene</h3>
+            <p>Brands can sponsor city launches, solo-raver sections, safety tools, or event pages.</p>
+            <button class="ghost-button shop-button" type="button">Create pitch</button>
+          </article>
+          <article class="shop-card sticker-card">
+            <span class="shop-label">Stickers</span>
+            <h3>Ravers Unite Sticker Packs</h3>
+            <p>Low-cost, high-share merch for phones, hydration packs, laptops, fans, and festival gifts.</p>
+            <div class="logo-sticker-preview" aria-label="Logo sticker preview">
+              <img src="assets/ravers-unite-logo-smile.png" alt="Ravers Unite smiling disco ball logo sticker" />
+              <div>
+                <strong>Smiling Disco Ball Logo Sticker</strong>
+                <p>Glossy die-cut logo sticker for the launch pack and free-with-order gifts.</p>
+              </div>
+            </div>
+            <div class="sticker-cloud" aria-label="Sticker ideas">
+              <span>Smiling disco ball logo</span>
+              <span>Hottie!</span>
+              <span>Baddie</span>
+              <span>Cute</span>
+              <span>Love</span>
+              <span>Lit</span>
+              <span>Naughty 😈</span>
+              <span>Nice ☺️</span>
+              <span>LGBTQ+ 🏳️‍🌈</span>
+              <span>Vibes</span>
+              <span>VibeSync'd</span>
+              <span>Ravers United</span>
+              <span>Love the way you dance</span>
+              <span>SlutMeOut</span>
+              <span>LemmEYP</span>
+              <span>Thank you</span>
+              <span>You're appreciated</span>
+              <span>Holy bass</span>
+              <span>The feels</span>
+              <span>Twerk</span>
+              <span>Dwerk</span>
+              <span>Slay</span>
+              <span>Purrr</span>
+              <span>PLUR</span>
+              <span>IfUknowUKnow</span>
+            </div>
+            <button class="ghost-button shop-button" type="button">Design stickers</button>
+          </article>
+        </div>
+        <div class="partner-strip" aria-label="Partner targets">
+          <span>DICE</span>
+          <span>Ticketmaster</span>
+          <span>Awin</span>
+          <span>Refersion</span>
+          <span>Shopify Collabs</span>
+          <span>Printful</span>
+          <span>Faire</span>
+        </div>
+      </section>
+
+      <section class="section producers-section" id="producers">
+        <div class="section-heading">
+          <p class="eyebrow">Upcoming Producers</p>
+          <h2>From dancefloor lover to track maker.</h2>
+          <p>
+            A lot of people in the scene want to learn how music is made. Ravers Unite can support
+            upcoming producers with partner tools, discounts, and creator education.
+          </p>
+        </div>
+        <div class="producer-partner-card">
+          <div>
+            <span class="shop-label">Partner spotlight</span>
+            <h3>Stemulator</h3>
+            <p>
+              Stemulator helps producers and musicians separate tracks into stems, export MIDI chord maps,
+              adjust key and tempo, and learn songs with guitar, bass, and piano tabs.
+            </p>
+            <div class="shop-tags">
+              <span>Stem separation</span>
+              <span>MIDI chord maps</span>
+              <span>Producer mode</span>
+              <span>Musician mode</span>
+            </div>
+          </div>
+          <div class="producer-offer">
+            <strong>Partner idea</strong>
+            <p>Offer a Ravers Unite discount code and track signups through a referral link.</p>
+            <a class="ticket-link" href="https://www.stemulator.app/?utm_source=raversunite&utm_medium=partner&utm_campaign=upcoming_producers" target="_blank" rel="noopener">Try Stemulator</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section local-djs-section" id="local-djs">
+        <div class="section-heading">
+          <p class="eyebrow">Local DJ Hub</p>
+          <h2>Discover the next sound before everyone else.</h2>
+          <p>
+            Local DJs can have profile pages with music links, upcoming gigs, booking info,
+            favorite counts, and event connections. Keep basic profiles free, then monetize featured placement later.
+          </p>
+        </div>
+        <div class="local-dj-accordion">
+          <details class="dj-dropdown" open>
+            <summary>
+              <span>
+                <strong>Featured local DJs</strong>
+                <small>Browse examples, claim profiles, and upcoming set cards.</small>
+              </span>
+            </summary>
+            <div class="dj-directory">
+          <article class="dj-card featured-dj">
+            <div class="dj-avatar">LB</div>
+            <div>
+              <span class="shop-label">Miami spotlight</span>
+              <h3>Luna Bass</h3>
+              <p>House / Tech House • Next playing: Floyd, Friday 11 PM</p>
+              <div class="club-meta">
+                <span>142 favorites</span>
+                <span>3 upcoming gigs</span>
+                <span>Booking open</span>
+              </div>
+            </div>
+            <a class="ticket-link" href="#events">View next set</a>
+          </article>
+          <article class="dj-card">
+            <div class="dj-avatar cyan">MX</div>
+            <h3>Marco X</h3>
+            <p>Minimal / Deep Tech • Resident-style late rooms and warmup sets.</p>
+            <div class="club-meta">
+              <span>SoundCloud</span><span>Instagram</span><span>Claim profile</span>
+            </div>
+          </article>
+          <article class="dj-card">
+            <div class="dj-avatar amber">NV</div>
+            <h3>NOVA V</h3>
+            <p>Melodic Techno • Visual-heavy sets and sunrise-ready builds.</p>
+            <div class="club-meta">
+              <span>Spotify</span><span>YouTube</span><span>Promote gig</span>
+            </div>
+          </article>
+          <article class="dj-card">
+            <div class="dj-avatar pink">SA</div>
+            <h3>Sahara AM</h3>
+            <p>Bass House / DnB • High-energy festival and warehouse sets.</p>
+            <div class="club-meta">
+              <span>2 crews following</span><span>Merch ready</span><span>Book this DJ</span>
+            </div>
+          </article>
+          <article class="dj-card">
+            <div class="dj-avatar cyan">DS</div>
+            <h3>DJ Sleaze</h3>
+            <p>Tech House / Afterhours • Local selector with late-night sets and underground room energy.</p>
+            <div class="club-meta">
+              <span>Claim profile</span><span>Upcoming gigs</span><span>Follow DJ</span>
+            </div>
+          </article>
+          <article class="dj-card">
+            <div class="dj-avatar amber">CC</div>
+            <h3>Crowcontrolol</h3>
+            <p>Bass / Experimental • Local crowd-mover with high-energy edits and left-field drops.</p>
+            <div class="club-meta">
+              <span>Upload mix</span><span>Next set TBD</span><span>Follow DJ</span>
+            </div>
+          </article>
+          <article class="dj-card dj-roster-card">
+            <div class="dj-avatar cyan">SW</div>
+            <div>
+              <span class="shop-label">SWFL local roster</span>
+              <h3>Fort Myers / Naples DJs</h3>
+              <p>Add official links, genres, photos, and next gigs as each profile gets claimed.</p>
+            </div>
+            <div class="dj-name-cloud" aria-label="SWFL local DJ names">
+              <span>Gerardo Aragon</span>
+              <span>Brandi Perl</span>
+              <span>Vega</span>
+              <span>Menace Bros</span>
+              <span>Betelli</span>
+              <span>Tico</span>
+              <span>Bruce Capo</span>
+              <span>Jaime G</span>
+              <span>Svish</span>
+            </div>
+          </article>
+          <article class="dj-card dj-roster-card">
+            <div class="dj-avatar pink">MIA</div>
+            <div>
+              <span class="shop-label">Miami local roster</span>
+              <h3>Miami DJs to profile next</h3>
+              <p>Good candidates for claimed profiles, upcoming gig links, and local discovery.</p>
+            </div>
+            <div class="dj-name-cloud" aria-label="Miami local DJ names">
+              <span>Brylin Washington</span>
+              <span>Greenhose</span>
+            </div>
+          </article>
+        </div>
+          </details>
+          <details class="dj-dropdown">
+            <summary>
+              <span>
+                <strong>How this makes money</strong>
+                <small>Keep basic DJ discovery free, monetize promotion and booking tools later.</small>
+              </span>
+            </summary>
+            <div class="dj-monetization">
+          <article>
+            <strong>Free</strong>
+            <span>Basic DJ profile, links, genres, city, and upcoming gigs.</span>
+          </article>
+          <article>
+            <strong>Paid later</strong>
+            <span>Featured city placement, verified badge, analytics, promo boosts, and booking leads.</span>
+          </article>
+          <article>
+            <strong>Profitable</strong>
+            <span>Ticket links, gig promotion, merch, producer-tool partners, and booking referrals.</span>
+          </article>
+            </div>
+          </details>
+          <details class="dj-dropdown">
+            <summary>
+              <span>
+                <strong>DJ database model</strong>
+                <small>Open this when adding DJs, importing lists, or building the admin dashboard.</small>
+              </span>
+            </summary>
+            <div class="dj-schema-card" aria-label="DJ profile data model">
+          <div>
+            <span class="shop-label">Database model</span>
+            <h3>DJ profile fields</h3>
+            <p>
+              Use this structure for local DJs, touring DJs, admin imports, venue history,
+              genre filters, and similar-artist matching.
+            </p>
+          </div>
+          <div class="schema-stack">
+            <div class="dj-schema-code">
+              <span>JSON profile object</span>
+              <pre><code>{
+  "dj_name": "",
+  "market": ["Miami", "Naples", "SWFL"],
+  "tier": "mainstream | underground | emerging | local",
+  "primary_genre": "",
+  "subgenre": "",
+  "style_description": "",
+  "typical_bpm": "",
+  "vibe_tags": [],
+  "best_venue_fit": [],
+  "similar_artists": []
+}</code></pre>
+            </div>
+            <div class="dj-schema-code">
+              <span>SQL starter table</span>
+              <pre><code>CREATE TABLE djs (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  dj_name TEXT NOT NULL,
+  market TEXT,
+  tier TEXT,
+  primary_genre TEXT,
+  subgenre TEXT,
+  style_description TEXT,
+  typical_bpm TEXT,
+  vibe_tags TEXT,
+  best_venue_fit TEXT,
+  similar_artists TEXT
+);</code></pre>
+            </div>
+          </div>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section class="section dj-profiles-section" id="dj-profiles">
+        <div class="section-heading">
+          <p class="eyebrow">DJ Profiles</p>
+          <h2>Keep discovery inside Ravers Unite first.</h2>
+          <p>
+            DJ names should open an in-app profile with official links, upcoming sets,
+            ticket links, followers, similar DJs, and people who share the same sound.
+          </p>
+        </div>
+        <div class="profile-preview-grid">
+          <article class="dj-profile-preview">
+            <div class="dj-profile-header">
+              <div class="dj-avatar">MP</div>
+              <div>
+                <span class="shop-label">Touring DJ</span>
+                <h3>Mau P</h3>
+                <p>Tech house • House • Club and festival sets</p>
+              </div>
+            </div>
+            <div class="profile-link-row">
+              <a href="https://www.instagram.com/maupmusic/" target="_blank" rel="noopener">Instagram</a>
+              <a href="https://open.spotify.com/search/Mau%20P" target="_blank" rel="noopener">Spotify</a>
+              <a href="https://ra.co/dj/maup" target="_blank" rel="noopener">RA</a>
+            </div>
+            <div class="club-meta">
+              <span>Favorite DJ</span><span>Similar fans</span><span>Upcoming sets</span>
+            </div>
+          </article>
+          <article class="dj-profile-preview">
+            <div class="dj-profile-header">
+              <div class="dj-avatar cyan">RA</div>
+              <div>
+                <span class="shop-label">Touring artist • Miami</span>
+                <h3>Rampa</h3>
+                <p>Afro House / Organic House • 118-123 BPM</p>
+              </div>
+            </div>
+            <p>Tribal, hypnotic, emotional, groove-heavy sets for sunrise, terrace, deep, and spiritual moments.</p>
+            <div class="profile-link-row">
+              <a href="https://www.instagram.com/rampa_keinemusik/" target="_blank" rel="noopener">Instagram</a>
+              <a href="https://open.spotify.com/search/Rampa" target="_blank" rel="noopener">Spotify</a>
+              <a href="https://ra.co/dj/rampa" target="_blank" rel="noopener">RA</a>
+            </div>
+            <div class="club-meta">
+              <span>Club Space</span><span>Factory Town</span><span>Do Not Sit</span>
+            </div>
+            <div class="club-meta">
+              <span>&amp;ME</span><span>Black Coffee</span><span>Adam Port</span><span>Francis Mercier</span>
+            </div>
+          </article>
+          <article class="dj-profile-preview">
+            <div class="dj-profile-header">
+              <div class="dj-avatar amber">BB</div>
+              <div>
+                <span class="shop-label">Touring artist</span>
+                <h3>Boris Brejcha</h3>
+                <p>High-tech minimal / melodic techno â€¢ festival and warehouse energy</p>
+              </div>
+            </div>
+            <p>Driving, melodic, futuristic sets that fit minimal tech, melodic techno, and peak-time moments.</p>
+            <div class="profile-link-row">
+              <a href="https://www.instagram.com/borisbrejcha/" target="_blank" rel="noopener">Instagram</a>
+              <a href="https://open.spotify.com/search/Boris%20Brejcha" target="_blank" rel="noopener">Spotify</a>
+              <a href="https://ra.co/dj/borisbrejcha" target="_blank" rel="noopener">RA</a>
+            </div>
+            <div class="club-meta">
+              <span>Minimal Tech House</span><span>Melodic Techno</span><span>Peak-Time</span>
+            </div>
+          </article>
+          <article class="dj-profile-preview">
+            <div class="dj-profile-header">
+              <div class="dj-avatar pink">SO</div>
+              <div>
+                <span class="shop-label">Touring artist</span>
+                <h3>Solomun</h3>
+                <p>Melodic House / Deep House â€¢ emotional, groove-led sets</p>
+              </div>
+            </div>
+            <p>Deep, melodic, and spacious dancefloor energy for sunset, terrace, and late-night journeys.</p>
+            <div class="profile-link-row">
+              <a href="https://www.instagram.com/solomun/" target="_blank" rel="noopener">Instagram</a>
+              <a href="https://open.spotify.com/search/Solomun" target="_blank" rel="noopener">Spotify</a>
+              <a href="https://ra.co/dj/solomun" target="_blank" rel="noopener">RA</a>
+            </div>
+            <div class="club-meta">
+              <span>Melodic House</span><span>Deep House</span><span>Organic House</span>
+            </div>
+          </article>
+          <article class="dj-profile-preview">
+            <div class="dj-profile-header">
+              <div class="dj-avatar cyan">DS</div>
+              <div>
+                <span class="shop-label">Local DJ</span>
+                <h3>DJ Sleaze</h3>
+                <p>Tech House • Afterhours • Miami</p>
+              </div>
+            </div>
+            <div class="profile-link-row">
+              <a href="#local-djs">Profile</a>
+              <a href="#events">Next set</a>
+              <a href="#ticket-tracking">Ticket link</a>
+            </div>
+            <div class="club-meta">
+              <span>Claim profile</span><span>Booking open</span><span>Follow DJ</span>
+            </div>
+          </article>
+          <article class="dj-profile-preview">
+            <div class="dj-profile-header">
+              <div class="dj-avatar amber">CC</div>
+              <div>
+                <span class="shop-label">Local DJ</span>
+                <h3>Crowcontrolol</h3>
+                <p>Bass • Experimental • Local crowd-mover</p>
+              </div>
+            </div>
+            <div class="profile-link-row">
+              <a href="#local-djs">Profile</a>
+              <a href="#producers">Producer tools</a>
+              <a href="#marketplace">Merch</a>
+            </div>
+            <div class="club-meta">
+              <span>Upload mix</span><span>Followers</span><span>Promote gig</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section build-roadmap-section" id="build-roadmap">
+        <div class="section-heading">
+          <p class="eyebrow">Website to working app</p>
+          <h2>Launch the website first, then turn it into the working app.</h2>
+          <p>
+            Use this website to prove demand, collect local interest, and pitch partners.
+            The working app comes next with login, profiles, matching, messages, admin tools,
+            event scanning, and ticket attribution.
+          </p>
+        </div>
+        <div class="roadmap-grid">
+          <article class="roadmap-card">
+            <span>01</span>
+            <h3>Public Website</h3>
+            <p>Custom domain, GitHub Pages deploy, launch story, waitlist, local venue list, merch preview, and investor-ready proof.</p>
+          </article>
+          <article class="roadmap-card">
+            <span>02</span>
+            <h3>Supabase Backend</h3>
+            <p>Database for users, profiles, DJs, venues, events, ticket clicks, merch interest, reports, and Dope Vibes.</p>
+          </article>
+          <article class="roadmap-card">
+            <span>03</span>
+            <h3>One-Button Login</h3>
+            <p>Apple and Google login, 18+ gate, profile setup, account recovery, and clear dating/hookup intent.</p>
+          </article>
+          <article class="roadmap-card">
+            <span>04</span>
+            <h3>Matching + Messages</h3>
+            <p>Frequency Match, favorite DJs, event-based matches, solo buddy requests, safe DMs, and block/report controls.</p>
+          </article>
+          <article class="roadmap-card">
+            <span>05</span>
+            <h3>Admin + Event Scanner</h3>
+            <p>Daily event scanner, pending approvals, local venue submissions, DICE/Ticketmaster/Eventbrite links, and UTM tracking.</p>
+          </article>
+          <article class="roadmap-card">
+            <span>06</span>
+            <h3>Mobile App</h3>
+            <p>Start as a PWA, then wrap for iOS and Android with push notifications, saved events, and app-store-ready onboarding.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section people-section" id="people">
+        <div class="section-heading">
+          <p class="eyebrow">Connections</p>
+          <h2>Frequency Match connects dates, hookups, friends, and crews by sound, events, intent, and favorite DJs.</h2>
+          <p>
+            Connections is the match feed: filters help people find romantic matches, mutual hookup interest,
+            event buddies, or friends without pretending everyone is looking for the same thing.
+          </p>
+        </div>
+        <div class="people-toolbar">
+          <button type="button" class="chip active" data-genre-filter="all">All sounds</button>
+          <button type="button" class="chip" data-genre-filter="afrohouse">Afro House</button>
+          <button type="button" class="chip" data-genre-filter="organichouse">Organic House</button>
+          <button type="button" class="chip" data-genre-filter="melodichouse">Melodic House</button>
+          <button type="button" class="chip" data-genre-filter="melodictechno">Melodic Techno</button>
+          <button type="button" class="chip" data-genre-filter="techhouse">Tech House</button>
+          <button type="button" class="chip" data-genre-filter="minimaltechhouse">Minimal Tech House</button>
+          <button type="button" class="chip" data-genre-filter="deephouse">Deep House</button>
+          <button type="button" class="chip" data-genre-filter="progressivehouse">Progressive House</button>
+          <button type="button" class="chip" data-genre-filter="peaktimetechno">Peak-Time Techno</button>
+          <button type="button" class="chip" data-genre-filter="hardtechno">Hard Techno</button>
+          <button type="button" class="chip" data-genre-filter="industrialtechno">Industrial Techno</button>
+          <button type="button" class="chip" data-genre-filter="electrohouse">Electro House</button>
+          <button type="button" class="chip" data-genre-filter="ukgarage">UK Garage</button>
+          <button type="button" class="chip" data-genre-filter="basshouse">Bass House</button>
+          <button type="button" class="chip" data-genre-filter="dubstep">Dubstep</button>
+          <button type="button" class="chip" data-genre-filter="openformat">Open Format</button>
+          <button type="button" class="chip" data-genre-filter="deserthouse">Desert House</button>
+          <button type="button" class="chip" data-genre-filter="localhouse">Local / SWFL House</button>
+        </div>
+        <div class="dj-toolbar" aria-label="Favorite DJ filters">
+          <span>Favorite DJs</span>
+          <button type="button" class="dj-chip active" data-dj-filter="all">All</button>
+          <button type="button" class="dj-chip" data-dj-filter="adambeyer">Adam Beyer</button>
+          <button type="button" class="dj-chip" data-dj-filter="abovebeyond">Above & Beyond</button>
+          <button type="button" class="dj-chip" data-dj-filter="ajk">AJK</button>
+          <button type="button" class="dj-chip" data-dj-filter="amelie">Amelie Lens</button>
+          <button type="button" class="dj-chip" data-dj-filter="anyma">Anyma</button>
+          <button type="button" class="dj-chip" data-dj-filter="anotr">ANOTR</button>
+          <button type="button" class="dj-chip" data-dj-filter="artbat">ARTBAT</button>
+          <button type="button" class="dj-chip" data-dj-filter="beltran">Beltran</button>
+          <button type="button" class="dj-chip" data-dj-filter="bensterling">Ben Sterling</button>
+          <button type="button" class="dj-chip" data-dj-filter="blackcoffee">Black Coffee</button>
+          <button type="button" class="dj-chip" data-dj-filter="boris">Boris Brejcha</button>
+          <button type="button" class="dj-chip" data-dj-filter="brunello">Brunello</button>
+          <button type="button" class="dj-chip" data-dj-filter="carlcox">Carl Cox</button>
+          <button type="button" class="dj-chip" data-dj-filter="camelphat">CamelPhat</button>
+          <button type="button" class="dj-chip" data-dj-filter="chasewest">ChaseWest</button>
+          <button type="button" class="dj-chip" data-dj-filter="charlotte">Charlotte de Witte</button>
+          <button type="button" class="dj-chip" data-dj-filter="chrislake">Chris Lake</button>
+          <button type="button" class="dj-chip" data-dj-filter="chrisstussy">Chris Stussy</button>
+          <button type="button" class="dj-chip" data-dj-filter="cloonee">Cloonee</button>
+          <button type="button" class="dj-chip" data-dj-filter="coleknight">Cole Knight</button>
+          <button type="button" class="dj-chip" data-dj-filter="danmolinari">Dan Molinari</button>
+          <button type="button" class="dj-chip" data-dj-filter="denniscruz">Dennis Cruz</button>
+          <button type="button" class="dj-chip" data-dj-filter="deserthearts">Desert Hearts</button>
+          <button type="button" class="dj-chip" data-dj-filter="diplo">Diplo</button>
+          <button type="button" class="dj-chip" data-dj-filter="domdolla">Dom Dolla</button>
+          <button type="button" class="dj-chip" data-dj-filter="eastenddubs">East End Dubs</button>
+          <button type="button" class="dj-chip" data-dj-filter="eddym">Eddy M</button>
+          <button type="button" class="dj-chip" data-dj-filter="ericprydz">Eric Prydz</button>
+          <button type="button" class="dj-chip" data-dj-filter="excision">Excision</button>
+          <button type="button" class="dj-chip" data-dj-filter="fisher">FISHER</button>
+          <button type="button" class="dj-chip" data-dj-filter="francescodelgarda">Francesco Del Garda</button>
+          <button type="button" class="dj-chip" data-dj-filter="fredagain">Fred again..</button>
+          <button type="button" class="dj-chip" data-dj-filter="gordo">Gordo</button>
+          <button type="button" class="dj-chip" data-dj-filter="greenvelvet">Green Velvet</button>
+          <button type="button" class="dj-chip" data-dj-filter="hank">Hank</button>
+          <button type="button" class="dj-chip" data-dj-filter="honeydijon">Honey Dijon</button>
+          <button type="button" class="dj-chip" data-dj-filter="hotsince82">Hot Since 82</button>
+          <button type="button" class="dj-chip" data-dj-filter="ihatemodels">I Hate Models</button>
+          <button type="button" class="dj-chip" data-dj-filter="indirapaganotto">Indira Paganotto</button>
+          <button type="button" class="dj-chip" data-dj-filter="jamiejones">Jamie Jones</button>
+          <button type="button" class="dj-chip" data-dj-filter="johnsummit">John Summit</button>
+          <button type="button" class="dj-chip" data-dj-filter="josephcapriati">Joseph Capriati</button>
+          <button type="button" class="dj-chip" data-dj-filter="joshbaker">Josh Baker</button>
+          <button type="button" class="dj-chip" data-dj-filter="laylabenitez">Layla Benitez</button>
+          <button type="button" class="dj-chip" data-dj-filter="layton">Layton Giordani</button>
+          <button type="button" class="dj-chip" data-dj-filter="locodice">Loco Dice</button>
+          <button type="button" class="dj-chip" data-dj-filter="lucaz">Lucaz</button>
+          <button type="button" class="dj-chip" data-dj-filter="lukedean">Luke Dean</button>
+          <button type="button" class="dj-chip" data-dj-filter="luciano">Luciano</button>
+          <button type="button" class="dj-chip" data-dj-filter="maceoplex">Maceo Plex</button>
+          <button type="button" class="dj-chip" data-dj-filter="mahony">Mahony</button>
+          <button type="button" class="dj-chip" data-dj-filter="marcocarola">Marco Carola</button>
+          <button type="button" class="dj-chip" data-dj-filter="mastersatwork">Masters At Work</button>
+          <button type="button" class="dj-chip" data-dj-filter="martinezbros">The Martinez Brothers</button>
+          <button type="button" class="dj-chip" data-dj-filter="maup">Mau P</button>
+          <button type="button" class="dj-chip" data-dj-filter="maxdean">Max Dean</button>
+          <button type="button" class="dj-chip" data-dj-filter="maxstyler">Max Styler</button>
+          <button type="button" class="dj-chip" data-dj-filter="michaelbibi">Michael Bibi</button>
+          <button type="button" class="dj-chip" data-dj-filter="mochakk">Mochakk</button>
+          <button type="button" class="dj-chip" data-dj-filter="msmada">Ms. Mada</button>
+          <button type="button" class="dj-chip" data-dj-filter="natalia">Natalia Roth</button>
+          <button type="button" class="dj-chip" data-dj-filter="nicomoreno">Nico Moreno</button>
+          <button type="button" class="dj-chip" data-dj-filter="nicolemoudaber">Nicole Moudaber</button>
+          <button type="button" class="dj-chip" data-dj-filter="noraenpure">Nora En Pure</button>
+          <button type="button" class="dj-chip" data-dj-filter="pacoosuna">Paco Osuna</button>
+          <button type="button" class="dj-chip" data-dj-filter="pawsa">PAWSA</button>
+          <button type="button" class="dj-chip" data-dj-filter="peggygou">Peggy Gou</button>
+          <button type="button" class="dj-chip" data-dj-filter="rafael">Rafael</button>
+          <button type="button" class="dj-chip" data-dj-filter="rampa">Rampa</button>
+          <button type="button" class="dj-chip" data-dj-filter="rezz">REZZ</button>
+          <button type="button" class="dj-chip" data-dj-filter="rossi">Rossi.</button>
+          <button type="button" class="dj-chip" data-dj-filter="sethtroxler">Seth Troxler</button>
+          <button type="button" class="dj-chip" data-dj-filter="skrillex">Skrillex</button>
+          <button type="button" class="dj-chip" data-dj-filter="slamm">Slamm</button>
+          <button type="button" class="dj-chip" data-dj-filter="slugg">Slugg</button>
+          <button type="button" class="dj-chip" data-dj-filter="solomun">Solomun</button>
+          <button type="button" class="dj-chip" data-dj-filter="sosa">Sosa</button>
+          <button type="button" class="dj-chip" data-dj-filter="subtronics">Subtronics</button>
+          <button type="button" class="dj-chip" data-dj-filter="thunderpony">Thunderpony</button>
+          <button type="button" class="dj-chip" data-dj-filter="tsha">TSHA</button>
+          <button type="button" class="dj-chip" data-dj-filter="tiesto">Tiesto</button>
+          <button type="button" class="dj-chip" data-dj-filter="vintageculture">Vintage Culture</button>
+        </div>
+        <div class="people-grid">
+          <article class="person-card" data-genre="afrohouse organichouse techhouse deephouse basshouse electrohouse localhouse openformat" data-djs="mochakk maup johnsummit domdolla fisher fredagain chrislake diplo gordo vintageculture pawsa denniscruz anotr sosa rafael rampa blackcoffee maxstyler chasewest" data-intent="crew friends dating hookups">
+            <div class="person-photo coral">AM</div>
+            <div>
+              <h3>Ari, 29</h3>
+              <p>Afro house, tech house, bass house, Mochakk, John Summit, FISHER</p>
+              <div class="match-meter"><span style="width: 92%"></span></div>
+              <strong>92% Frequency Match</strong>
+            </div>
+            <button type="button" class="connect-button">Connect</button>
+          </article>
+          <article class="person-card" data-genre="minimaltechhouse deephouse progressivehouse deserthouse localhouse techhouse" data-djs="cloonee mochakk camelphat boris jamiejones marcocarola michaelbibi locodice sethtroxler hotsince82 bensterling beltran maxdean lukedean lucaz ajk joshbaker rossi chrisstussy coleknight brunello eastenddubs eddym francescodelgarda hank laylabenitez luciano mahony danmolinari slamm slugg msmada thunderpony deserthearts" data-intent="crew friends">
+            <div class="person-photo blue">NO</div>
+            <div>
+              <h3>Noel, 34</h3>
+              <p>Minimal tech house, deep house, Josh Baker, Rossi., Chris Stussy</p>
+              <div class="match-meter"><span style="width: 86%"></span></div>
+              <strong>86% Frequency Match</strong>
+            </div>
+            <button type="button" class="connect-button">Connect</button>
+          </article>
+          <article class="person-card" data-genre="melodichouse melodictechno progressivehouse peaktimetechno hardtechno industrialtechno afrohouse organichouse" data-djs="charlotte amelie anyma rezz carlcox peggygou solomun martinezbros josephcapriati greenvelvet honeydijon nicolemoudaber adambeyer ericprydz artbat maceoplex blackcoffee ihatemodels indirapaganotto layton nicomoreno noraenpure pacoosuna mastersatwork natalia tsha" data-intent="dating hookups friends">
+            <div class="person-photo lime">VA</div>
+            <div>
+              <h3>Vale, 31</h3>
+              <p>Melodic techno, peak-time techno, Anyma, Black Coffee, Carl Cox</p>
+              <div class="match-meter"><span style="width: 81%"></span></div>
+              <strong>81% Frequency Match</strong>
+            </div>
+            <button type="button" class="connect-button">Connect</button>
+          </article>
+          <article class="person-card" data-genre="basshouse dubstep ukgarage electrohouse openformat" data-djs="domdolla johnsummit skrillex subtronics excision tiesto abovebeyond" data-intent="crew friends">
+            <div class="person-photo violet">JX</div>
+            <div>
+              <h3>Jax, 27</h3>
+              <p>Bass house, dubstep, UK garage, Skrillex, Subtronics, Dom Dolla</p>
+              <div class="match-meter"><span style="width: 74%"></span></div>
+              <strong>74% Frequency Match</strong>
+            </div>
+            <button type="button" class="connect-button">Connect</button>
+          </article>
+        </div>
+      </section>
+
+      <section class="identity-section" id="identity">
+        <div class="section-heading">
+          <p class="eyebrow">Relationship and identity filters</p>
+          <h2>Let people say what they mean before anyone matches.</h2>
+          <p>
+            Ravers Unite is an 18+ community where people can be clear about who they are,
+            what kind of connection they want, and what boundaries matter before meeting.
+          </p>
+        </div>
+        <div class="preference-grid">
+          <article class="preference-card">
+            <h3>Relationship style</h3>
+            <div class="preference-tags">
+              <button class="preference-tag active" type="button">Monogamous</button>
+              <button class="preference-tag" type="button">Polyamorous</button>
+              <button class="preference-tag" type="button">Open relationship</button>
+              <button class="preference-tag" type="button">ENM</button>
+              <button class="preference-tag" type="button">Ambiamorous</button>
+              <button class="preference-tag" type="button">Exploring</button>
+            </div>
+          </article>
+          <article class="preference-card">
+            <h3>Who you want to meet</h3>
+            <div class="preference-tags">
+              <button class="preference-tag active" type="button">Singles</button>
+              <button class="preference-tag" type="button">Couples</button>
+              <button class="preference-tag" type="button">Unicorns</button>
+              <button class="preference-tag" type="button">Solo daters</button>
+              <button class="preference-tag" type="button">Partnered people</button>
+              <button class="preference-tag" type="button">Festival crew</button>
+              <button class="preference-tag" type="button">Afterparty friends</button>
+            </div>
+          </article>
+          <article class="preference-card">
+            <h3>Orientation</h3>
+            <div class="preference-tags">
+              <button class="preference-tag active" type="button">Straight</button>
+              <button class="preference-tag" type="button">Gay</button>
+              <button class="preference-tag" type="button">Lesbian</button>
+              <button class="preference-tag" type="button">Bisexual</button>
+              <button class="preference-tag" type="button">Pansexual</button>
+              <button class="preference-tag" type="button">Queer</button>
+              <button class="preference-tag" type="button">Questioning</button>
+              <button class="preference-tag" type="button">Asexual</button>
+            </div>
+          </article>
+          <article class="preference-card">
+            <h3>Gender</h3>
+            <div class="preference-tags">
+              <button class="preference-tag active" type="button">Woman</button>
+              <button class="preference-tag" type="button">Man</button>
+              <button class="preference-tag" type="button">Nonbinary</button>
+              <button class="preference-tag" type="button">Trans</button>
+              <button class="preference-tag" type="button">Genderfluid</button>
+              <button class="preference-tag" type="button">Agender</button>
+              <button class="preference-tag" type="button">Self-describe</button>
+            </div>
+          </article>
+          <article class="preference-card">
+            <h3>Connection pace</h3>
+            <div class="preference-tags">
+              <button class="preference-tag active" type="button">Long-term</button>
+              <button class="preference-tag" type="button">Short-term</button>
+              <button class="preference-tag" type="button">Casual</button>
+              <button class="preference-tag" type="button">Hookup tonight</button>
+              <button class="preference-tag" type="button">Friends first</button>
+              <button class="preference-tag" type="button">Still figuring it out</button>
+            </div>
+          </article>
+          <article class="preference-card">
+            <h3>Boundaries</h3>
+            <div class="preference-tags">
+              <button class="preference-tag active" type="button">Verified only</button>
+              <button class="preference-tag" type="button">Mutual photos only</button>
+              <button class="preference-tag" type="button">No explicit openers</button>
+              <button class="preference-tag" type="button">Public meetup first</button>
+              <button class="preference-tag" type="button">Clear-headed meetups</button>
+              <button class="preference-tag" type="button">Share with crew</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="safety-band" id="safety">
+        <div>
+          <p class="eyebrow">Trust is a feature</p>
+          <h2>Designed for safer meetups from day one.</h2>
+          <p>
+            Ravers Unite is built for adults who want real connection with clear intent,
+            verified profiles, event-based meetups, and simple tools to stay comfortable with the people they meet.
+          </p>
+        </div>
+        <div class="safety-list">
+          <article>
+            <strong>01</strong>
+            <span>Verified profiles and event check-ins</span>
+          </article>
+          <article>
+            <strong>02</strong>
+            <span>Separate modes for friends, crew, dating, hookups, and clear boundaries</span>
+          </article>
+          <article>
+            <strong>03</strong>
+            <span>Fast block/report controls and moderation dashboard</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="section rave-safety-section" id="rave-safety">
+        <div class="section-heading">
+          <p class="eyebrow">Rave Safety Guide</p>
+          <h2>No judgment. Just look out for each other.</h2>
+          <p>
+            Ravers Unite does not encourage drug use. But if people are going to party,
+            the app should help them recognize risky situations, stay with their crew,
+            and get help fast when something feels wrong.
+          </p>
+        </div>
+        <div class="safety-guide-grid">
+          <article class="safety-guide-card urgent">
+            <span>Emergency</span>
+            <h3>If someone seems in trouble</h3>
+            <p>Get venue medical staff or security right away, stay with them, and contact emergency services if the situation feels serious.</p>
+          </article>
+          <article class="safety-guide-card">
+            <span>Buddy system</span>
+            <h3>Do not let people disappear alone</h3>
+            <p>Arrive with a check-in plan, pick a meetup spot, and use solo buddy requests before the event starts.</p>
+          </article>
+          <article class="safety-guide-card">
+            <span>Hydration</span>
+            <h3>Drink water steadily</h3>
+            <p>Take breaks, cool down, use electrolytes when needed, and avoid overdoing water too quickly.</p>
+          </article>
+          <article class="safety-guide-card">
+            <span>Rest</span>
+            <h3>Sleep before the long night</h3>
+            <p>Going into a bender exhausted makes everything harder. Rest before, eat something, and plan recovery time after.</p>
+          </article>
+          <article class="safety-guide-card">
+            <span>Harm reduction</span>
+            <h3>Know what resources exist</h3>
+            <p>Where legal and available, fentanyl test strips and naloxone can reduce risk. Learn where local harm-reduction supplies are before the event.</p>
+          </article>
+          <article class="safety-guide-card">
+            <span>Red flags</span>
+            <h3>When in doubt, get help</h3>
+            <p>Confusion, overheating, collapse, trouble breathing, blue or gray lips, or not waking up are reasons to get medical help immediately.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section dope-vibes-section" id="dope-vibes">
+        <div class="section-heading">
+          <p class="eyebrow">Dope Vibes</p>
+          <h2>Trust badges, not star ratings.</h2>
+          <p>
+            After a meetup, users can send positive vibe badges that help others find respectful,
+            reliable, and fun people to rave with. No public bad scores. No attractiveness ratings.
+          </p>
+        </div>
+        <div class="vibes-grid">
+          <article class="vibe-profile">
+            <div class="person-photo coral">AM</div>
+            <div>
+              <h3>Ari has 18 Dope Vibes</h3>
+              <p>Most received: Respectful, Showed up, Great dance energy, PLUR energy.</p>
+            </div>
+            <div class="vibe-badges">
+              <span>Respectful</span>
+              <span>Good communicator</span>
+              <span>Would rave again</span>
+              <span>PLUR energy</span>
+            </div>
+          </article>
+          <article class="vibes-list">
+            <h3>Badge options</h3>
+            <div class="vibe-badges">
+              <span>Respectful</span>
+              <span>Showed up</span>
+              <span>Safe meetup</span>
+              <span>Great crew energy</span>
+              <span>Grounded energy</span>
+              <span>Helpful at the event</span>
+              <span>Good communicator</span>
+              <span>Would rave again</span>
+              <span>PLUR energy</span>
+              <span>Good dance energy</span>
+              <span>No pressure</span>
+              <span>Made me feel safe</span>
+              <span>Great date energy</span>
+              <span>Solo buddy approved</span>
+              <span>Crew connector</span>
+              <span>Hydration hero</span>
+              <span>Checked in</span>
+              <span>Good afterparty etiquette</span>
+              <span>Positive vibes</span>
+              <span>On time</span>
+              <span>Great listener</span>
+              <span>Respectful flirt</span>
+            </div>
+          </article>
+          <article class="vibes-list guardrails">
+            <h3>Guardrails</h3>
+            <p>Only mutual connections can send Dope Vibes after an event or accepted meetup.</p>
+            <p>Badges can be hidden, reported, or removed by moderation if they are abused.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <aside class="profile-panel" aria-label="Dating profile builder" aria-hidden="true">
+      <div class="panel-header">
+        <div>
+          <p class="eyebrow">18+ dating profile</p>
+          <h2>Build your match card</h2>
+        </div>
+        <button class="icon-button panel-close" type="button" aria-label="Close profile builder">
+          <span aria-hidden="true">x</span>
+        </button>
+      </div>
+      <div class="auth-box">
+        <div>
+          <p class="form-step-label">One-button login</p>
+          <strong>Save your profile to an account</strong>
+        </div>
+        <div class="auth-actions">
+          <button class="ghost-button oauth-button" type="button" data-provider="google">Continue with Google</button>
+          <button class="ghost-button oauth-button" type="button" data-provider="apple">Continue with Apple</button>
+        </div>
+        <p class="form-status auth-status">
+          Prototype mode: OAuth activates after Supabase keys and providers are configured.
+        </p>
+      </div>
+      <form class="profile-form">
+        <div class="profile-progress" aria-label="Profile completion">
+          <span class="progress-dot active"></span>
+          <span class="progress-dot active"></span>
+          <span class="progress-dot"></span>
+          <span class="progress-dot"></span>
+        </div>
+        <section class="form-step">
+          <p class="form-step-label">Step 1</p>
+          <h3>Start with trust</h3>
+          <fieldset class="age-gate">
+            <legend>Age confirmation</legend>
+            <label><input name="ageConfirm" type="checkbox" required /> I confirm I am 18 or older.</label>
+          </fieldset>
+          <div class="form-grid-two">
+            <label>
+              Display name
+              <input name="displayName" type="text" value="Hugo" required />
+            </label>
+            <label>
+              Age
+              <input name="age" type="number" min="18" value="29" required />
+            </label>
+          </div>
+          <label>
+            Home scene
+            <input name="homeScene" type="text" value="Naples, Fort Myers, Miami" />
+          </label>
+        </section>
+        <section class="form-step">
+          <p class="form-step-label">Step 2</p>
+          <h3>What are you open to?</h3>
+          <fieldset class="pill-checkboxes">
+            <legend>Connection intent</legend>
+            <label><input type="checkbox" name="intent" value="Dates" checked /> Dates</label>
+            <label><input type="checkbox" name="intent" value="Hookups" /> Hookups</label>
+            <label><input type="checkbox" name="intent" value="Friends" checked /> Friends</label>
+            <label><input type="checkbox" name="intent" value="Solo buddy" /> Solo buddy</label>
+            <label><input type="checkbox" name="intent" value="Crew" /> Crew</label>
+          </fieldset>
+          <div class="form-grid-two">
+            <label>
+              Relationship style
+              <select name="relationshipStyle">
+                <option>Monogamous</option>
+                <option>Polyamorous</option>
+                <option>Open relationship</option>
+                <option>Ethically non-monogamous</option>
+                <option>Ambiamorous</option>
+                <option>Still figuring it out</option>
+              </select>
+            </label>
+            <label>
+              Connection pace
+              <select name="connectionPace">
+                <option>Chat first</option>
+                <option>Meet at an event</option>
+                <option>Open to tonight</option>
+                <option>Slow burn</option>
+              </select>
+            </label>
+          </div>
+        </section>
+        <section class="form-step">
+          <p class="form-step-label">Step 3</p>
+          <h3>Identity and boundaries</h3>
+          <div class="form-grid-two">
+            <label>
+              Orientation
+              <select name="orientation">
+                <option>Straight</option>
+                <option>Gay</option>
+                <option>Lesbian</option>
+                <option>Bisexual</option>
+                <option>Pansexual</option>
+                <option>Queer</option>
+                <option>Questioning</option>
+                <option>Asexual</option>
+                <option>Self-describe</option>
+              </select>
+            </label>
+            <label>
+              Gender
+              <select name="gender">
+                <option>Woman</option>
+                <option>Man</option>
+                <option>Nonbinary</option>
+                <option>Trans</option>
+                <option>Genderfluid</option>
+                <option>Agender</option>
+                <option>Self-describe</option>
+              </select>
+            </label>
+          </div>
+          <fieldset class="pill-checkboxes">
+            <legend>Before matching</legend>
+            <label><input type="checkbox" name="boundary" value="Mutual intent for hookup visibility" checked /> Mutual intent for hookup visibility</label>
+            <label><input type="checkbox" name="boundary" value="Public first meetup option" checked /> Public first meetup option</label>
+            <label><input type="checkbox" name="boundary" value="Block explicit first messages" checked /> Block explicit first messages</label>
+          </fieldset>
+        </section>
+        <section class="form-step">
+          <p class="form-step-label">Step 4</p>
+          <h3>Your sound</h3>
+          <label>
+            Top genres
+            <select name="genres">
+              <option>Afro House, Organic House, Melodic House</option>
+              <option>Tech House, Minimal Tech House, Deep House</option>
+              <option>Melodic Techno, Peak-Time Techno, Hard Techno</option>
+              <option>Bass House, UK Garage, Dubstep</option>
+              <option>Desert House, Local / SWFL House, Open Format</option>
+            </select>
+          </label>
+          <label>
+            Favorite DJs
+            <input name="favoriteDjs" type="text" value="Mochakk, John Summit, Dom Dolla, Fred again.." />
+          </label>
+          <label>
+            Next event
+            <input name="nextEvent" type="text" value="Club Space or Factory Town weekend" />
+          </label>
+        </section>
+        <article class="profile-preview-card" aria-label="Profile preview">
+          <span>Your match card preview</span>
+          <strong class="preview-name">Hugo, 29</strong>
+          <p class="preview-meta">Dates, Friends - House, tech house, minimal - Naples, Fort Myers, Miami</p>
+        </article>
+        <button class="primary-button save-profile" type="submit">Save profile</button>
+      </form>
+    </aside>
+    <nav class="bottom-nav" aria-label="Mobile app navigation">
+      <a href="#events">Events</a>
+      <a href="#dating">Dating</a>
+      <a href="#solo">Solo</a>
+      <button class="profile-toggle-mobile" type="button">Profile</button>
+    </nav>
+    <div class="backdrop"></div>
+    <div class="toast" role="status" aria-live="polite"></div>
+
+    <script>
+      window.RAVERS_UNITE_SUPABASE = window.RAVERS_UNITE_SUPABASE || {
+        url: "",
+        anonKey: "",
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

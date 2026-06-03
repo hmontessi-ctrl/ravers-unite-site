@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Ravers Unite disco ball logo</title>
+  <desc id="desc">A colorful disco ball app icon for Ravers Unite.</desc>
+  <defs>
+    <linearGradient id="bg" x1="80" y1="48" x2="432" y2="464" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#101827"/>
+      <stop offset="1" stop-color="#05070b"/>
+    </linearGradient>
+    <radialGradient id="ball" cx="34%" cy="24%" r="78%">
+      <stop stop-color="#ffffff"/>
+      <stop offset="0.18" stop-color="#aefcff"/>
+      <stop offset="0.38" stop-color="#33d7d4"/>
+      <stop offset="0.62" stop-color="#ff4f9a"/>
+      <stop offset="0.82" stop-color="#ffc857"/>
+      <stop offset="1" stop-color="#9d7cff"/>
+    </radialGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="16" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <circle cx="112" cy="110" r="74" fill="#33d7d4" opacity="0.13"/>
+  <circle cx="406" cy="162" r="88" fill="#ff4f9a" opacity="0.11"/>
+  <path d="M256 46v66" stroke="#f7f5ee" stroke-width="5" stroke-linecap="round" opacity="0.52"/>
+  <circle cx="256" cy="220" r="126" fill="url(#ball)" filter="url(#glow)"/>
+  <path d="M148 156h216M132 206h248M138 256h236M172 302h168" stroke="#ffffff" stroke-width="5" opacity="0.28"/>
+  <path d="M190 105c-18 64-18 162 0 230M256 96v248M322 105c18 64 18 162 0 230" stroke="#ffffff" stroke-width="5" opacity="0.28"/>
+  <circle cx="218" cy="166" r="16" fill="#ffffff" opacity="0.9"/>
+  <circle cx="318" cy="282" r="9" fill="#ffffff" opacity="0.72"/>
+  <circle cx="180" cy="278" r="7" fill="#ffc857" opacity="0.9"/>
+  <text x="256" y="414" text-anchor="middle" fill="#f7f5ee" font-family="Inter, Arial, sans-serif" font-size="60" font-weight="900" letter-spacing="0">RU</text>
+  <text x="256" y="448" text-anchor="middle" fill="#a8afbd" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800" letter-spacing="0">RAVERS UNITE</text>
+</svg>
