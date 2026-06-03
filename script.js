@@ -14,6 +14,7 @@ const eventCards = document.querySelectorAll(".event-card");
 const preferenceTags = document.querySelectorAll(".preference-tag");
 const guideTabs = document.querySelectorAll(".guide-tab");
 const guidePanels = document.querySelectorAll(".guide-panel");
+const cardSelects = document.querySelectorAll("[data-card-select]");
 const waitlistForm = document.querySelector(".waitlist-form");
 const waitlistStatus = document.querySelector(".waitlist-status");
 const eventSubmitForm = document.querySelector(".event-submit-form");
@@ -284,6 +285,28 @@ function applyFilters() {
   });
 }
 
+function updateSelectedCard(select) {
+  const cardGroup = select.dataset.cardSelect;
+
+  if (!cardGroup) {
+    return;
+  }
+
+  const cards = document.querySelectorAll(`[data-card-group="${cardGroup}"]`);
+  let hasVisibleCard = false;
+
+  cards.forEach((card) => {
+    const isSelected = card.dataset.cardItem === select.value;
+    card.hidden = !isSelected;
+    hasVisibleCard = hasVisibleCard || isSelected;
+  });
+
+  if (!hasVisibleCard && cards.length > 0) {
+    cards[0].hidden = false;
+    select.value = cards[0].dataset.cardItem;
+  }
+}
+
 profileToggle.addEventListener("click", openPanel);
 profileToggleMobile.addEventListener("click", openPanel);
 profileToggleInline?.addEventListener("click", openPanel);
@@ -343,6 +366,11 @@ guideTabs.forEach((tab) => {
       .querySelector(`[data-guide-panel="${tab.dataset.guide}"]`)
       ?.classList.add("active");
   });
+});
+
+cardSelects.forEach((select) => {
+  updateSelectedCard(select);
+  select.addEventListener("change", () => updateSelectedCard(select));
 });
 
 document.querySelectorAll(".join-button").forEach((button) => {

@@ -241,78 +241,135 @@
           <button class="guide-tab" type="button" data-guide="local-events">Local events</button>
         </div>
         <div class="guide-panel active" data-guide-panel="venues">
-          <article class="club-card">
-            <span class="club-rank">01</span>
-            <h3>Club Space</h3>
-            <p>Nightclub: house, techno, sunrise sets, terrace culture, and serious late-night energy.</p>
-            <div class="club-meta">
-              <span>Nightclub</span>
-              <span>Best for: sunrise</span>
-              <span>Solo-friendly</span>
-            </div>
-          </article>
-          <article class="club-card">
-            <span class="club-rank">02</span>
-            <h3>Factory Town</h3>
-            <p>Open-air event venue: large-scale electronic events, festival energy, big crews, and multi-stage nights.</p>
-            <div class="club-meta">
-              <span>Event venue</span>
-              <span>Best for: crews</span>
-              <span>Outdoor</span>
-            </div>
-          </article>
-          <article class="club-card">
-            <span class="club-rank">03</span>
-            <h3>Floyd</h3>
-            <p>Intimate club/lounge: smaller room, deep cuts, and better conversations before the set.</p>
-            <div class="club-meta">
-              <span>Club/lounge</span>
-              <span>Best for: dates</span>
-              <span>Intimate</span>
-            </div>
-          </article>
-          <article class="club-card">
-            <span class="club-rank">04</span>
-            <h3>1-800-Lucky</h3>
-            <p>Food hall / day-party spot: casual meetups, music programming, and easy first-event energy.</p>
-            <div class="club-meta">
-              <span>Food hall</span>
-              <span>Best for: first meetup</span>
-              <span>Day party</span>
-            </div>
-          </article>
+          <div class="directory-picker light-picker">
+            <label for="venue-select">Choose a venue or spot</label>
+            <select id="venue-select" data-card-select="venues">
+              <option value="club-space">Club Space</option>
+              <option value="factory-town">Factory Town</option>
+              <option value="floyd">Floyd</option>
+              <option value="lucky">1-800-Lucky</option>
+            </select>
+            <p>Pick a place to see the vibe, category, and where users should go next.</p>
+          </div>
+          <div class="guide-card-stack">
+            <article class="club-card guide-option-card" data-card-group="venues" data-card-item="club-space">
+              <span class="club-rank">01</span>
+              <h3>Club Space</h3>
+              <p>Nightclub: house, techno, sunrise sets, terrace culture, and serious late-night energy.</p>
+              <div class="club-meta">
+                <span>Nightclub</span>
+                <span>Best for: sunrise</span>
+                <span>Solo-friendly</span>
+              </div>
+              <div class="profile-link-row venue-link-row">
+                <a href="#events">View events</a>
+                <a href="#ticket-tracking">Ticket links</a>
+                <a href="#solo">Find a set buddy</a>
+              </div>
+            </article>
+            <article class="club-card guide-option-card" data-card-group="venues" data-card-item="factory-town" hidden>
+              <span class="club-rank">02</span>
+              <h3>Factory Town</h3>
+              <p>Open-air event venue: large-scale electronic events, festival energy, big crews, and multi-stage nights.</p>
+              <div class="club-meta">
+                <span>Event venue</span>
+                <span>Best for: crews</span>
+                <span>Outdoor</span>
+              </div>
+              <div class="profile-link-row venue-link-row">
+                <a href="#events">View events</a>
+                <a href="#crews">Find a crew</a>
+                <a href="#ticket-tracking">Ticket links</a>
+              </div>
+            </article>
+            <article class="club-card guide-option-card" data-card-group="venues" data-card-item="floyd" hidden>
+              <span class="club-rank">03</span>
+              <h3>Floyd</h3>
+              <p>Intimate club/lounge: smaller room, deep cuts, and better conversations before the set.</p>
+              <div class="club-meta">
+                <span>Club/lounge</span>
+                <span>Best for: dates</span>
+                <span>Intimate</span>
+              </div>
+              <div class="profile-link-row venue-link-row">
+                <a href="#dating">Meet before the set</a>
+                <a href="#events">View events</a>
+                <a href="#people">Match by sound</a>
+              </div>
+            </article>
+            <article class="club-card guide-option-card" data-card-group="venues" data-card-item="lucky" hidden>
+              <span class="club-rank">04</span>
+              <h3>1-800-Lucky</h3>
+              <p>Food hall / day-party spot: casual meetups, music programming, and easy first-event energy.</p>
+              <div class="club-meta">
+                <span>Food hall</span>
+                <span>Best for: first meetup</span>
+                <span>Day party</span>
+              </div>
+              <div class="profile-link-row venue-link-row">
+                <a href="#solo">Solo-friendly meetups</a>
+                <a href="#events">View events</a>
+                <a href="#partners">Showcase request</a>
+              </div>
+            </article>
+          </div>
         </div>
         <div class="guide-panel" data-guide-panel="local-events">
-          <article class="club-card">
-            <span class="club-rank">Fri</span>
-            <h3>Mochakk & Bambounou</h3>
-            <p>Club Space nightclub • May 22 • DICE ticket link active.</p>
-            <div class="club-meta">
-              <span>House</span>
-              <span>86 going</span>
-              <span>Solo requests</span>
-            </div>
-          </article>
-          <article class="club-card">
-            <span class="club-rank">Sun</span>
-            <h3>Humans Alike Sundays</h3>
-            <p>1-800-Lucky food hall • May 24 • Free Sunday event and solo-friendly crew meetup.</p>
-            <div class="club-meta">
-              <span>House party</span>
-              <span>38 going</span>
-              <span>Public meetup</span>
-            </div>
-          </article>
-          <article class="club-card muted-card">
-            <span class="club-rank">+</span>
-            <h3>Add more local events</h3>
-            <p>Future version should import from DICE, promoters, venue calendars, and approved partner feeds.</p>
-            <div class="club-meta">
-              <span>DICE</span>
-              <span>Promoters</span>
-              <span>Venue feeds</span>
-            </div>
-          </article>
+          <div class="directory-picker light-picker">
+            <label for="local-event-select">Choose an event feed</label>
+            <select id="local-event-select" data-card-select="local-events">
+              <option value="miami-ticketed">Miami ticketed events</option>
+              <option value="swfl-nights">Naples + Fort Myers DJ nights</option>
+              <option value="promoter-submit">Promoter-submitted events</option>
+            </select>
+            <p>Keep this focused on upcoming events only, then send users to tickets, crews, or solo plans.</p>
+          </div>
+          <div class="guide-card-stack">
+            <article class="club-card guide-option-card" data-card-group="local-events" data-card-item="miami-ticketed">
+              <span class="club-rank">MIA</span>
+              <h3>Miami ticketed events</h3>
+              <p>DICE, venue calendars, and promoter links can feed upcoming Club Space, Factory Town, Floyd, and other ticketed nights.</p>
+              <div class="club-meta">
+                <span>DICE-ready</span>
+                <span>Ticket attribution</span>
+                <span>Solo requests</span>
+              </div>
+              <div class="profile-link-row venue-link-row">
+                <a href="#events">Browse events</a>
+                <a href="#ticket-tracking">Track ticket clicks</a>
+                <a href="#partners">Partner request</a>
+              </div>
+            </article>
+            <article class="club-card guide-option-card" data-card-group="local-events" data-card-item="swfl-nights" hidden>
+              <span class="club-rank">SWFL</span>
+              <h3>Naples + Fort Myers DJ nights</h3>
+              <p>Highlight places like Seed to Table, Aqua, La Trattoria, NatNat, Hogwash, Millennial, and Waxin's when they book DJs or music nights.</p>
+              <div class="club-meta">
+                <span>Naples</span>
+                <span>Fort Myers</span>
+                <span>Local discovery</span>
+              </div>
+              <div class="profile-link-row venue-link-row">
+                <a href="#naples-launch">Local launch map</a>
+                <a href="#solo">Find someone to go with</a>
+                <a href="#partners">Showcase request</a>
+              </div>
+            </article>
+            <article class="club-card guide-option-card muted-card" data-card-group="local-events" data-card-item="promoter-submit" hidden>
+              <span class="club-rank">+</span>
+              <h3>Promoter-submitted events</h3>
+              <p>Approved DJs, venues, promoters, and local businesses can submit upcoming events for review before they appear in the app.</p>
+              <div class="club-meta">
+                <span>Promoters</span>
+                <span>Venue feeds</span>
+                <span>Admin review</span>
+              </div>
+              <div class="profile-link-row venue-link-row">
+                <button class="ticket-link local-event-submit" type="button">Submit event</button>
+                <a href="#partners">Business showcase</a>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -365,7 +422,7 @@
 
       <section class="section" id="events">
         <div class="section-heading">
-          <p class="eyebrow">Tonight and next up</p>
+          <p class="eyebrow">Upcoming events</p>
           <h2>Event-based community is the engine.</h2>
         </div>
         <div class="quick-actions" aria-label="Quick actions">
@@ -379,39 +436,39 @@
         <div class="event-grid">
           <article class="event-card hot" data-genre="house techno" data-intent="crew dating hookups friends">
             <div class="event-date">
-              <span>Fri</span>
-              <strong>22</strong>
+              <span>Feed</span>
+              <strong>+</strong>
             </div>
             <div>
-              <p class="tag">DICE • Selling fast</p>
-              <h3>Mochakk & Bambounou</h3>
-              <p>Club Space Miami • 11:00 PM • From $40</p>
+              <p class="tag">DICE partner ready</p>
+              <h3>Miami ticketed events</h3>
+              <p>Club Space, Factory Town, Floyd, and other upcoming shows can auto-refresh here.</p>
               <div class="avatar-stack" aria-label="People going">
-                <span>MJ</span><span>Lo</span><span>Av</span><span>+86</span>
+                <span>MIA</span><span>SP</span><span>FT</span><span>+</span>
               </div>
             </div>
             <div class="event-actions">
               <button class="ghost-button join-button" type="button">Going</button>
-              <a class="ticket-link" href="https://dice.fm/event/l85qgw-mochakk-bambounou-22nd-may-club-space-miami-miami-tickets?utm_source=raversunite&utm_medium=app&utm_campaign=miami_events&utm_content=mochakk_bambounou" target="_blank" rel="noopener" data-event="Mochakk & Bambounou">Get tickets</a>
+              <a class="ticket-link" href="#ticket-tracking" data-event="Miami ticketed event feed">Track tickets</a>
             </div>
           </article>
 
           <article class="event-card" data-genre="house" data-intent="crew friends dating">
             <div class="event-date">
-              <span>Sun</span>
-              <strong>24</strong>
+              <span>SWFL</span>
+              <strong>+</strong>
             </div>
             <div>
-              <p class="tag">DICE • Free</p>
-              <h3>Humans Alike Sundays</h3>
-              <p>1-800-Lucky • 12:00 PM • House party</p>
+              <p class="tag">Local calendar</p>
+              <h3>Naples + Fort Myers DJ nights</h3>
+              <p>Seed to Table, Aqua, La Trattoria, NatNat, Hogwash, Millennial, Waxin's, and approved local nights.</p>
               <div class="avatar-stack" aria-label="People going">
-                <span>Ro</span><span>Iz</span><span>Ny</span><span>+38</span>
+                <span>NP</span><span>FM</span><span>DJ</span><span>+</span>
               </div>
             </div>
             <div class="event-actions">
               <button class="ghost-button join-button" type="button">Going</button>
-              <a class="ticket-link" href="https://dice.fm/event/dk8qpe-humans-alike-sundays-24th-may-1-800-lucky-miami-tickets?lng=en-CA&utm_source=raversunite&utm_medium=app&utm_campaign=miami_events&utm_content=humans_alike_sundays" target="_blank" rel="noopener" data-event="Humans Alike Sundays">Get tickets</a>
+              <a class="ticket-link" href="#partners" data-event="SWFL local DJ nights">Submit event</a>
             </div>
           </article>
 
@@ -940,7 +997,192 @@
                 <small>Browse examples, claim profiles, and upcoming set cards.</small>
               </span>
             </summary>
-            <div class="dj-directory">
+            <div class="directory-picker dj-picker">
+              <label for="local-dj-select">Choose a local DJ</label>
+              <select id="local-dj-select" data-card-select="local-djs">
+                <option value="dj-sleaze">DJ Sleaze</option>
+                <option value="crowdcontrolol">CrowdControlol</option>
+                <option value="gerardo-aragon">Gerardo Aragon</option>
+                <option value="brandi-perl">Brandi Perl</option>
+                <option value="vega">Vega</option>
+                <option value="menace-bros">Menace Bros</option>
+                <option value="betelli">Betelli</option>
+                <option value="tico">Tico</option>
+                <option value="bruce-capo">Bruce Capo</option>
+                <option value="jaime-g">Jaime G</option>
+                <option value="svish">Svish</option>
+                <option value="brylin-washington">Brylin Washington</option>
+                <option value="greenhose">Greenhose</option>
+              </select>
+              <p>Pick a DJ to preview the profile card users would open in the app.</p>
+            </div>
+            <div class="dj-directory dj-directory-single">
+              <article class="dj-card dj-dropdown-card featured-dj" data-card-group="local-djs" data-card-item="dj-sleaze">
+                <div class="dj-avatar cyan">DS</div>
+                <div>
+                  <span class="shop-label">SWFL local DJ</span>
+                  <h3>DJ Sleaze</h3>
+                  <p>Tech house / afterhours. Local selector with late-night sets and underground room energy.</p>
+                  <div class="club-meta">
+                    <span>Claim profile</span><span>Upcoming gigs</span><span>Follow DJ</span>
+                  </div>
+                </div>
+                <div class="profile-link-row">
+                  <a href="#dj-profiles">Open profile</a>
+                  <a href="#events">Next set</a>
+                  <a href="#partners">Update links</a>
+                </div>
+              </article>
+              <article class="dj-card dj-dropdown-card" data-card-group="local-djs" data-card-item="crowdcontrolol" hidden>
+                <div class="dj-avatar amber">CC</div>
+                <div>
+                  <span class="shop-label">Local DJ</span>
+                  <h3>CrowdControlol</h3>
+                  <p>Bass / experimental. Local crowd-mover with high-energy edits and left-field drops.</p>
+                  <div class="club-meta">
+                    <span>Upload mix</span><span>Next set TBD</span><span>Follow DJ</span>
+                  </div>
+                </div>
+                <div class="profile-link-row">
+                  <a href="#dj-profiles">Open profile</a>
+                  <a href="#producers">Music tools</a>
+                  <a href="#partners">Update links</a>
+                </div>
+              </article>
+              <article class="dj-card dj-dropdown-card" data-card-group="local-djs" data-card-item="gerardo-aragon" hidden>
+                <div class="dj-avatar">GA</div>
+                <div>
+                  <span class="shop-label">SWFL local roster</span>
+                  <h3>Gerardo Aragon</h3>
+                  <p>Profile ready for official music links, socials, genres, booking info, and upcoming gigs.</p>
+                </div>
+                <div class="profile-link-row">
+                  <a href="#partners">Claim profile</a>
+                  <a href="#events">Add next set</a>
+                </div>
+              </article>
+              <article class="dj-card dj-dropdown-card" data-card-group="local-djs" data-card-item="brandi-perl" hidden>
+                <div class="dj-avatar pink">BP</div>
+                <div>
+                  <span class="shop-label">SWFL local roster</span>
+                  <h3>Brandi Perl</h3>
+                  <p>Profile ready for official music links, socials, genres, booking info, and upcoming gigs.</p>
+                </div>
+                <div class="profile-link-row">
+                  <a href="#partners">Claim profile</a>
+                  <a href="#events">Add next set</a>
+                </div>
+              </article>
+              <article class="dj-card dj-dropdown-card" data-card-group="local-djs" data-card-item="vega" hidden>
+                <div class="dj-avatar cyan">VG</div>
+                <div>
+                  <span class="shop-label">SWFL local roster</span>
+                  <h3>Vega</h3>
+                  <p>Profile ready for official music links, socials, genres, booking info, and upcoming gigs.</p>
+                </div>
+                <div class="profile-link-row">
+                  <a href="#partners">Claim profile</a>
+                  <a href="#events">Add next set</a>
+                </div>
+              </article>
+              <article class="dj-card dj-dropdown-card" data-card-group="local-djs" data-card-item="menace-bros" hidden>
+                <div class="dj-avatar amber">MB</div>
+                <div>
+                  <span class="shop-label">SWFL local roster</span>
+                  <h3>Menace Bros</h3>
+                  <p>Profile ready for official music links, socials, genres, booking info, and upcoming gigs.</p>
+                </div>
+                <div class="profile-link-row">
+                  <a href="#partners">Claim profile</a>
+                  <a href="#events">Add next set</a>
+                </div>
+              </article>
+              <article class="dj-card dj-dropdown-card" data-card-group="local-djs" data-card-item="betelli" hidden>
+                <div class="dj-avatar">BT</div>
+                <div>
+                  <span class="shop-label">SWFL local roster</span>
+                  <h3>Betelli</h3>
+                  <p>Profile ready for official music links, socials, genres, booking info, and upcoming gigs.</p>
+                </div>
+                <div class="profile-link-row">
+                  <a href="#partners">Claim profile</a>
+                  <a href="#events">Add next set</a>
+                </div>
+              </article>
+              <article class="dj-card dj-dropdown-card" data-card-group="local-djs" data-card-item="tico" hidden>
+                <div class="dj-avatar pink">TC</div>
+                <div>
+                  <span class="shop-label">SWFL local roster</span>
+                  <h3>Tico</h3>
+                  <p>Profile ready for official music links, socials, genres, booking info, and upcoming gigs.</p>
+                </div>
+                <div class="profile-link-row">
+                  <a href="#partners">Claim profile</a>
+                  <a href="#events">Add next set</a>
+                </div>
+              </article>
+              <article class="dj-card dj-dropdown-card" data-card-group="local-djs" data-card-item="bruce-capo" hidden>
+                <div class="dj-avatar cyan">BC</div>
+                <div>
+                  <span class="shop-label">SWFL local roster</span>
+                  <h3>Bruce Capo</h3>
+                  <p>Profile ready for official music links, socials, genres, booking info, and upcoming gigs.</p>
+                </div>
+                <div class="profile-link-row">
+                  <a href="#partners">Claim profile</a>
+                  <a href="#events">Add next set</a>
+                </div>
+              </article>
+              <article class="dj-card dj-dropdown-card" data-card-group="local-djs" data-card-item="jaime-g" hidden>
+                <div class="dj-avatar amber">JG</div>
+                <div>
+                  <span class="shop-label">SWFL local roster</span>
+                  <h3>Jaime G</h3>
+                  <p>Profile ready for official music links, socials, genres, booking info, and upcoming gigs.</p>
+                </div>
+                <div class="profile-link-row">
+                  <a href="#partners">Claim profile</a>
+                  <a href="#events">Add next set</a>
+                </div>
+              </article>
+              <article class="dj-card dj-dropdown-card" data-card-group="local-djs" data-card-item="svish" hidden>
+                <div class="dj-avatar">SV</div>
+                <div>
+                  <span class="shop-label">SWFL local roster</span>
+                  <h3>Svish</h3>
+                  <p>Profile ready for official music links, socials, genres, booking info, and upcoming gigs.</p>
+                </div>
+                <div class="profile-link-row">
+                  <a href="#partners">Claim profile</a>
+                  <a href="#events">Add next set</a>
+                </div>
+              </article>
+              <article class="dj-card dj-dropdown-card" data-card-group="local-djs" data-card-item="brylin-washington" hidden>
+                <div class="dj-avatar pink">BW</div>
+                <div>
+                  <span class="shop-label">Miami local roster</span>
+                  <h3>Brylin Washington</h3>
+                  <p>Profile ready for official music links, socials, genres, booking info, and upcoming gigs.</p>
+                </div>
+                <div class="profile-link-row">
+                  <a href="#partners">Claim profile</a>
+                  <a href="#events">Add next set</a>
+                </div>
+              </article>
+              <article class="dj-card dj-dropdown-card" data-card-group="local-djs" data-card-item="greenhose" hidden>
+                <div class="dj-avatar cyan">GH</div>
+                <div>
+                  <span class="shop-label">Miami local roster</span>
+                  <h3>Greenhose</h3>
+                  <p>Profile ready for official music links, socials, genres, booking info, and upcoming gigs.</p>
+                </div>
+                <div class="profile-link-row">
+                  <a href="#partners">Claim profile</a>
+                  <a href="#events">Add next set</a>
+                </div>
+              </article>
+            </div>
+            <div class="dj-directory legacy-dj-grid" hidden>
           <article class="dj-card featured-dj">
             <div class="dj-avatar">LB</div>
             <div>
@@ -989,7 +1231,7 @@
           </article>
           <article class="dj-card">
             <div class="dj-avatar amber">CC</div>
-            <h3>Crowcontrolol</h3>
+            <h3>CrowdControlol</h3>
             <p>Bass / Experimental • Local crowd-mover with high-energy edits and left-field drops.</p>
             <div class="club-meta">
               <span>Upload mix</span><span>Next set TBD</span><span>Follow DJ</span>
@@ -1113,8 +1355,20 @@
             ticket links, followers, similar DJs, and people who share the same sound.
           </p>
         </div>
-        <div class="profile-preview-grid">
-          <article class="dj-profile-preview">
+        <div class="directory-picker dj-picker dj-profile-picker">
+          <label for="featured-dj-select">Choose a DJ profile</label>
+          <select id="featured-dj-select" data-card-select="dj-profiles">
+            <option value="mau-p">Mau P</option>
+            <option value="rampa">Rampa</option>
+            <option value="boris-brejcha">Boris Brejcha</option>
+            <option value="solomun">Solomun</option>
+            <option value="dj-sleaze-profile">DJ Sleaze</option>
+            <option value="crowdcontrolol-profile">CrowdControlol</option>
+          </select>
+          <p>Names can open profile-style pages with official links, upcoming sets, followers, and match-by-sound discovery.</p>
+        </div>
+        <div class="profile-preview-grid profile-preview-single">
+          <article class="dj-profile-preview" data-card-group="dj-profiles" data-card-item="mau-p">
             <div class="dj-profile-header">
               <div class="dj-avatar">MP</div>
               <div>
@@ -1132,7 +1386,7 @@
               <span>Favorite DJ</span><span>Similar fans</span><span>Upcoming sets</span>
             </div>
           </article>
-          <article class="dj-profile-preview">
+          <article class="dj-profile-preview" data-card-group="dj-profiles" data-card-item="rampa" hidden>
             <div class="dj-profile-header">
               <div class="dj-avatar cyan">RA</div>
               <div>
@@ -1154,7 +1408,7 @@
               <span>&amp;ME</span><span>Black Coffee</span><span>Adam Port</span><span>Francis Mercier</span>
             </div>
           </article>
-          <article class="dj-profile-preview">
+          <article class="dj-profile-preview" data-card-group="dj-profiles" data-card-item="boris-brejcha" hidden>
             <div class="dj-profile-header">
               <div class="dj-avatar amber">BB</div>
               <div>
@@ -1173,7 +1427,7 @@
               <span>Minimal Tech House</span><span>Melodic Techno</span><span>Peak-Time</span>
             </div>
           </article>
-          <article class="dj-profile-preview">
+          <article class="dj-profile-preview" data-card-group="dj-profiles" data-card-item="solomun" hidden>
             <div class="dj-profile-header">
               <div class="dj-avatar pink">SO</div>
               <div>
@@ -1192,7 +1446,7 @@
               <span>Melodic House</span><span>Deep House</span><span>Organic House</span>
             </div>
           </article>
-          <article class="dj-profile-preview">
+          <article class="dj-profile-preview" data-card-group="dj-profiles" data-card-item="dj-sleaze-profile" hidden>
             <div class="dj-profile-header">
               <div class="dj-avatar cyan">DS</div>
               <div>
@@ -1210,12 +1464,12 @@
               <span>Claim profile</span><span>Booking open</span><span>Follow DJ</span>
             </div>
           </article>
-          <article class="dj-profile-preview">
+          <article class="dj-profile-preview" data-card-group="dj-profiles" data-card-item="crowdcontrolol-profile" hidden>
             <div class="dj-profile-header">
               <div class="dj-avatar amber">CC</div>
               <div>
                 <span class="shop-label">Local DJ</span>
-                <h3>Crowcontrolol</h3>
+                <h3>CrowdControlol</h3>
                 <p>Bass • Experimental • Local crowd-mover</p>
               </div>
             </div>
