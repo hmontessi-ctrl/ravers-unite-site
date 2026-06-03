@@ -30,11 +30,11 @@ let activeIntent = "all";
 let activeGenre = "all";
 let activeDj = "all";
 let toastTimer;
-let ticketClicks = Number(window.localStorage.getItem("raversUniteTicketClicks") || 0);
-let profileSaved = window.localStorage.getItem("raversUniteProfileSaved") === "true";
+let ticketClicks = Number(window.localStorage.getItem("sameSetTicketClicks") || 0);
+let profileSaved = window.localStorage.getItem("sameSetProfileSaved") === "true";
 let supabaseClient;
 
-const supabaseSettings = window.RAVERS_UNITE_SUPABASE || {};
+const supabaseSettings = window.SAMESET_SUPABASE || window.RAVERS_UNITE_SUPABASE || {};
 
 const genreDjMap = {
   afrohouse: ["blackcoffee", "gordo", "honeydijon", "rampa"],
@@ -133,7 +133,7 @@ function setStatus(element, message, state = "") {
 }
 
 function getSessionId() {
-  const savedSessionId = window.localStorage.getItem("raversUniteSessionId");
+  const savedSessionId = window.localStorage.getItem("sameSetSessionId");
 
   if (savedSessionId) {
     return savedSessionId;
@@ -141,7 +141,7 @@ function getSessionId() {
 
   const newSessionId =
     window.crypto?.randomUUID?.() || `${Date.now()}-${Math.random().toString(16).slice(2)}`;
-  window.localStorage.setItem("raversUniteSessionId", newSessionId);
+  window.localStorage.setItem("sameSetSessionId", newSessionId);
   return newSessionId;
 }
 
@@ -384,7 +384,7 @@ document.querySelectorAll(".join-button").forEach((button) => {
 document.querySelectorAll(".ticket-link").forEach((link) => {
   link.addEventListener("click", async () => {
     ticketClicks += 1;
-    window.localStorage.setItem("raversUniteTicketClicks", String(ticketClicks));
+    window.localStorage.setItem("sameSetTicketClicks", String(ticketClicks));
     renderTicketClicks();
     showToast(`Ticket referral tracked: ${link.dataset.event || "partner link"}.`);
 
@@ -436,7 +436,7 @@ waitlistForm?.addEventListener("submit", async (event) => {
     if (result.synced) {
       setStatus(waitlistStatus, "You're on the beta list. We'll invite you when profiles open.", "success");
     } else {
-      saveLocalRecord("raversUniteWaitlist", payload);
+      saveLocalRecord("sameSetWaitlist", payload);
       setStatus(waitlistStatus, "Saved in this browser. Add Supabase keys to sync the real waitlist.", "success");
     }
 
@@ -482,7 +482,7 @@ eventSubmitForm?.addEventListener("submit", async (event) => {
     if (result.synced) {
       setStatus(eventSubmitStatus, "Submitted. It will go into the local event approval queue.", "success");
     } else {
-      saveLocalRecord("raversUniteEventSubmissions", payload);
+      saveLocalRecord("sameSetEventSubmissions", payload);
       setStatus(eventSubmitStatus, "Saved in this browser. Add Supabase keys to sync submissions.", "success");
     }
 
@@ -521,7 +521,7 @@ businessInquiryForm?.addEventListener("submit", async (event) => {
     if (result.synced) {
       setStatus(businessInquiryStatus, "Submitted. We will review it for the partner showcase queue.", "success");
     } else {
-      saveLocalRecord("raversUniteBusinessInquiries", payload);
+      saveLocalRecord("sameSetBusinessInquiries", payload);
       setStatus(businessInquiryStatus, "Saved in this browser. Add Supabase keys to sync partner requests.", "success");
     }
 
@@ -636,12 +636,12 @@ profileForm?.addEventListener("submit", async (event) => {
       setStatus(authStatus, "Profile synced to your account.", "success");
       showToast("Profile saved to Supabase.");
     } else {
-      window.localStorage.setItem("raversUniteProfile", JSON.stringify(payload));
+      window.localStorage.setItem("sameSetProfile", JSON.stringify(payload));
       showToast(client ? "Profile saved locally. Sign in to sync it." : "Profile saved locally. Add Supabase to sync.");
     }
 
     profileSaved = true;
-    window.localStorage.setItem("raversUniteProfileSaved", "true");
+    window.localStorage.setItem("sameSetProfileSaved", "true");
     closePanel();
   } catch (error) {
     showToast("Could not save profile yet. Check Supabase setup.");

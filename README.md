@@ -1,6 +1,6 @@
-﻿# Ravers Unite Public Site
+# SameSet Public Site
 
-Public static website for Ravers Unite.
+Public static website for SameSet.
 
 Live site: https://hmontessi-ctrl.github.io/ravers-unite-site/
 
