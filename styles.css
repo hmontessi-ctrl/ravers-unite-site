@@ -106,7 +106,7 @@ nav,
 
 .brand-mark.logo-crop {
   border-radius: 8px;
-  background-image: url("assets/ravers-unite-logo-smile.png?v=heart-smile");
+  background-image: url("assets/ravers-unite-logo-smile.png?v=original-smile");
   background-repeat: no-repeat;
   background-size: 82px 82px;
   background-position: center 19%;
@@ -2628,7 +2628,7 @@ body {
 }
 
 .brand-mark.logo-crop {
-  background-image: url("assets/ravers-unite-logo-smile.png?v=heart-smile");
+  background-image: url("assets/ravers-unite-logo-smile.png?v=original-smile");
   background-repeat: no-repeat;
   background-size: 82px 82px;
   background-position: center 19%;
