@@ -716,6 +716,43 @@
         <button class="primary-button profile-toggle-inline" type="button">Build my profile</button>
       </section>
 
+      <section class="section match-system-section" id="match-system">
+        <div class="section-heading">
+          <p class="eyebrow">How matching works</p>
+          <h2>SameSet should match people by the night they actually want, not just a photo swipe.</h2>
+          <p>
+            The match score should explain itself: users see who shares their intent, sound, DJs,
+            events, location, and comfort settings before they start a conversation.
+          </p>
+        </div>
+        <div class="match-system-grid">
+          <article>
+            <span>01</span>
+            <h3>Intent first</h3>
+            <p>Dates, hookups, friends, solo buddy, or crew. Hookup visibility only appears when intent is mutual.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Sound match</h3>
+            <p>Favorite genres, DJs, venues, Spotify or SoundCloud links, and saved events power the Frequency Match.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Event context</h3>
+            <p>Matches can start from a person, a DJ profile, a venue, or an event both people want to attend.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Trust layer</h3>
+            <p>18+ login, profile photos, Dope Vibes, block/report tools, and public first-meetup options reduce guessing.</p>
+          </article>
+        </div>
+        <div class="why-better-strip">
+          <strong>Better than swipe-only dating:</strong>
+          <span>SameSet shows the reason for the match: same DJ, same event, same intent, same vibe.</span>
+        </div>
+      </section>
+
       <section class="section analytics-section internal-section" id="ticket-tracking" hidden>
         <div class="section-heading">
           <p class="eyebrow">Ticket attribution</p>
@@ -1905,10 +1942,10 @@
       </section>
     </main>
 
-    <aside class="profile-panel" aria-label="Dating profile builder" aria-hidden="true">
+    <aside class="profile-panel" aria-label="SameSet profile builder" aria-hidden="true">
       <div class="panel-header">
         <div>
-          <p class="eyebrow">18+ dating profile</p>
+          <p class="eyebrow">18+ SameSet profile</p>
           <h2>Build your match card</h2>
         </div>
         <button class="icon-button panel-close" type="button" aria-label="Close profile builder">
@@ -1937,11 +1974,21 @@
         </div>
         <section class="form-step">
           <p class="form-step-label">Step 1</p>
-          <h3>Start with trust</h3>
+          <h3>Photos, basics, and trust</h3>
           <fieldset class="age-gate">
             <legend>Age confirmation</legend>
             <label><input name="ageConfirm" type="checkbox" required /> I confirm I am 18 or older.</label>
           </fieldset>
+          <div class="photo-upload-card">
+            <div>
+              <strong>Add 3-6 photos</strong>
+              <p>Use face, full-body, rave/festival, and everyday photos. In production these save to secure profile storage.</p>
+            </div>
+            <label class="photo-upload-button">
+              Choose photos
+              <input name="profilePhotos" type="file" accept="image/*" multiple />
+            </label>
+          </div>
           <div class="form-grid-two">
             <label>
               Display name
@@ -1955,6 +2002,10 @@
           <label>
             Home scene
             <input name="homeScene" type="text" value="Naples, Fort Myers, Miami" />
+          </label>
+          <label>
+            Profile prompt
+            <input name="profilePrompt" type="text" value="Find me dancing near the left speaker." />
           </label>
         </section>
         <section class="form-step">
@@ -2050,6 +2101,16 @@
             Next event
             <input name="nextEvent" type="text" value="Club Space or Factory Town weekend" />
           </label>
+          <div class="form-grid-two">
+            <label>
+              Spotify or SoundCloud
+              <input name="musicLink" type="url" placeholder="https://open.spotify.com/..." />
+            </label>
+            <label>
+              Instagram
+              <input name="socialLink" type="url" placeholder="https://instagram.com/..." />
+            </label>
+          </div>
         </section>
         <article class="profile-preview-card" aria-label="Profile preview">
           <span>Your match card preview</span>

@@ -594,12 +594,16 @@ oauthButtons.forEach((button) => {
 
 function buildProfilePayload(form) {
   const data = new FormData(form);
+  const photos = [...form.querySelector('input[name="profilePhotos"]')?.files || []].map((file) => file.name);
 
   return {
     display_name: String(data.get("displayName") || "").trim(),
     age: Number(data.get("age")),
     is_18_confirmed: data.get("ageConfirm") === "on",
+    photo_count: photos.length,
+    photo_names: photos,
     home_scene: String(data.get("homeScene") || "").trim(),
+    profile_prompt: String(data.get("profilePrompt") || "").trim(),
     intents: getCheckedValues("intent", form),
     relationship_style: data.get("relationshipStyle"),
     connection_pace: data.get("connectionPace"),
@@ -609,6 +613,8 @@ function buildProfilePayload(form) {
     genres: data.get("genres"),
     favorite_djs: String(data.get("favoriteDjs") || "").trim(),
     next_event: String(data.get("nextEvent") || "").trim(),
+    music_link: String(data.get("musicLink") || "").trim(),
+    social_link: String(data.get("socialLink") || "").trim(),
     visibility: "active",
   };
 }
@@ -669,9 +675,11 @@ function updateProfilePreview() {
   const intentText = intents.length ? intents.join(", ") : "Choose intent";
   const genres = data.get("genres") || "Choose genres";
   const homeScene = data.get("homeScene") || "Choose scene";
+  const photoCount = form.querySelector('input[name="profilePhotos"]')?.files?.length || 0;
+  const photoText = photoCount ? ` - ${photoCount} photos` : "";
 
   previewName.textContent = `${displayName}, ${age}`;
-  previewMeta.textContent = `${intentText} - ${genres} - ${homeScene}`;
+  previewMeta.textContent = `${intentText} - ${genres} - ${homeScene}${photoText}`;
 }
 
 profileForm?.addEventListener("input", updateProfilePreview);
