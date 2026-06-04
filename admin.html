@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SameSet Admin | Review Queue</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" href="assets/sameset-logo-smile.png?v=sameset-logo-clean" type="image/png" />
+    <link rel="stylesheet" href="styles.css?v=admin-dashboard" />
+  </head>
+  <body class="admin-body">
+    <header class="admin-header">
+      <a class="brand" href="index.html#top" aria-label="SameSet public site">
+        <span class="brand-mark logo-crop" aria-hidden="true"></span>
+        <span class="brand-text">
+          <strong>SameSet</strong>
+          <small>Admin</small>
+        </span>
+      </a>
+      <div class="admin-session">
+        <span class="admin-user-email">Not signed in</span>
+        <button class="ghost-button admin-sign-out" type="button" hidden>Sign out</button>
+      </div>
+    </header>
+
+    <main class="admin-shell">
+      <section class="admin-hero">
+        <p class="eyebrow">Private Review Dashboard</p>
+        <h1>Approve what goes live before the scene sees it.</h1>
+        <p>
+          Review waitlist signups, event submissions, business showcase requests,
+          DJ claims, and ticket-click proof from one founder dashboard.
+        </p>
+      </section>
+
+      <section class="admin-login-panel" aria-live="polite">
+        <div>
+          <p class="eyebrow">Admin Login</p>
+          <h2>Sign in with an approved admin email.</h2>
+          <p>
+            Access is checked against the Supabase <code>admin_users</code> table.
+            Add your founder email there before using this page.
+          </p>
+        </div>
+        <div class="admin-login-actions">
+          <button class="primary-button admin-google-login" type="button">Continue with Google</button>
+          <a class="ghost-button" href="index.html#top">Back to public site</a>
+        </div>
+        <p class="form-status admin-auth-status">Checking admin access...</p>
+      </section>
+
+      <section class="admin-app" hidden>
+        <div class="admin-toolbar">
+          <div>
+            <p class="eyebrow">Queues</p>
+            <h2>Founder control room</h2>
+          </div>
+          <button class="ghost-button admin-refresh" type="button">Refresh queues</button>
+        </div>
+
+        <div class="admin-metrics" aria-label="Queue totals">
+          <article>
+            <span>Waitlist</span>
+            <strong data-admin-total="waitlist">0</strong>
+          </article>
+          <article>
+            <span>Events</span>
+            <strong data-admin-total="events">0</strong>
+          </article>
+          <article>
+            <span>Partners</span>
+            <strong data-admin-total="partners">0</strong>
+          </article>
+          <article>
+            <span>DJs</span>
+            <strong data-admin-total="djs">0</strong>
+          </article>
+          <article>
+            <span>Ticket clicks</span>
+            <strong data-admin-total="tickets">0</strong>
+          </article>
+        </div>
+
+        <div class="admin-controls" aria-label="Admin queue controls">
+          <div class="admin-tabs" role="tablist" aria-label="Review queues">
+            <button class="admin-tab is-active" type="button" data-queue="waitlist">Waitlist</button>
+            <button class="admin-tab" type="button" data-queue="events">Events</button>
+            <button class="admin-tab" type="button" data-queue="partners">Partners</button>
+            <button class="admin-tab" type="button" data-queue="djs">DJs</button>
+            <button class="admin-tab" type="button" data-queue="tickets">Tickets</button>
+          </div>
+          <label>
+            Status
+            <select class="admin-status-filter">
+              <option value="all">All</option>
+              <option value="pending">Pending</option>
+              <option value="approved">Approved</option>
+              <option value="rejected">Rejected</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="admin-error" hidden></div>
+        <section class="admin-record-list" aria-live="polite"></section>
+      </section>
+    </main>
+
+    <script>
+      window.SAMESET_SUPABASE = window.SAMESET_SUPABASE || {
+        url: "",
+        anonKey: "",
+      };
+      window.RAVERS_UNITE_SUPABASE = window.SAMESET_SUPABASE;
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="admin.js"></script>
+  </body>
+</html>
