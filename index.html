@@ -1388,6 +1388,96 @@
         </div>
       </section>
 
+      <section class="section dj-claim-section" id="dj-claim">
+        <div class="section-heading">
+          <p class="eyebrow">DJ Claim System</p>
+          <h2>DJs can claim or submit a profile for review.</h2>
+          <p>
+            Local and touring DJs should be able to send music links, socials, booking info,
+            genres, photos, and upcoming gigs so SameSet can showcase them after admin approval.
+          </p>
+        </div>
+        <div class="partner-inquiry-layout">
+          <div class="partner-inquiry-copy">
+            <span class="shop-label">Artist intake</span>
+            <h3>Keep profiles accurate without opening the database to everyone.</h3>
+            <p>
+              Submissions go into a review queue first. Once approved, the profile can appear in
+              DJ discovery, event pages, favorite-DJ filters, and city launch features.
+            </p>
+            <div class="shop-tags">
+              <span>Music links</span>
+              <span>Socials</span>
+              <span>Booking info</span>
+              <span>Upcoming gigs</span>
+              <span>Admin review</span>
+            </div>
+          </div>
+          <form class="app-form-card dj-claim-form">
+            <div class="form-grid-two">
+              <label>
+                Your name
+                <input name="contactName" type="text" placeholder="Your name" required />
+              </label>
+              <label>
+                Email
+                <input name="email" type="email" placeholder="you@email.com" required />
+              </label>
+            </div>
+            <div class="form-grid-two">
+              <label>
+                DJ name
+                <input name="djName" type="text" placeholder="Artist name" required />
+              </label>
+              <label>
+                Market
+                <input name="market" type="text" placeholder="Naples, Fort Myers, Miami..." />
+              </label>
+            </div>
+            <div class="form-grid-two">
+              <label>
+                Tier
+                <select name="tier">
+                  <option>Local</option>
+                  <option>Emerging</option>
+                  <option>Underground</option>
+                  <option>Touring</option>
+                  <option>Mainstream</option>
+                </select>
+              </label>
+              <label>
+                Main genre
+                <input name="primaryGenre" type="text" placeholder="Tech house, Afro house, bass..." />
+              </label>
+            </div>
+            <div class="form-grid-two">
+              <label>
+                Music link
+                <input name="musicUrl" type="url" placeholder="SoundCloud, Spotify, Linktree..." />
+              </label>
+              <label>
+                Instagram
+                <input name="instagramUrl" type="url" placeholder="https://instagram.com/..." />
+              </label>
+            </div>
+            <label>
+              Booking contact
+              <input name="bookingEmail" type="email" placeholder="booking@email.com" />
+            </label>
+            <label>
+              Upcoming gigs
+              <textarea name="upcomingGigs" rows="3" placeholder="Dates, venues, event links, or recurring nights."></textarea>
+            </label>
+            <label>
+              Short bio
+              <textarea name="bio" rows="4" placeholder="Sound, vibe, venues played, support slots, and what people should know."></textarea>
+            </label>
+            <button class="primary-button" type="submit">Submit DJ profile</button>
+            <p class="form-status dj-claim-status">DJ claims save to the review queue before anything goes live.</p>
+          </form>
+        </div>
+      </section>
+
       <section class="section dj-profiles-section" id="dj-profiles">
         <div class="section-heading">
           <p class="eyebrow">DJ Profiles</p>
@@ -1568,6 +1658,57 @@
             <h3>Mobile App</h3>
             <p>Start as a PWA, then wrap for iOS and Android with push notifications, saved events, and app-store-ready onboarding.</p>
           </article>
+        </div>
+      </section>
+
+      <section class="section admin-dashboard-section" id="admin-dashboard">
+        <div class="section-heading">
+          <p class="eyebrow">Founder Dashboard Preview</p>
+          <h2>Review the queues before anything goes live.</h2>
+          <p>
+            This is the control room SameSet needs next: waitlist, event submissions, business showcase
+            requests, DJ claims, and ticket-click proof. On GitHub Pages it safely shows local/demo data;
+            in production it should sit behind private Supabase admin login.
+          </p>
+        </div>
+        <div class="admin-grid">
+          <article class="admin-queue-card">
+            <span>Waitlist</span>
+            <strong data-admin-count="waitlist">0</strong>
+            <p>People waiting for beta access.</p>
+          </article>
+          <article class="admin-queue-card">
+            <span>Events</span>
+            <strong data-admin-count="events">0</strong>
+            <p>Promoter and venue event submissions.</p>
+          </article>
+          <article class="admin-queue-card">
+            <span>Partners</span>
+            <strong data-admin-count="partners">0</strong>
+            <p>Business showcase and sponsor requests.</p>
+          </article>
+          <article class="admin-queue-card">
+            <span>DJ Claims</span>
+            <strong data-admin-count="djs">0</strong>
+            <p>DJ profile claims waiting for review.</p>
+          </article>
+          <article class="admin-queue-card">
+            <span>Ticket Clicks</span>
+            <strong data-admin-count="tickets">0</strong>
+            <p>Local tracked outbound ticket interest.</p>
+          </article>
+        </div>
+        <div class="admin-review-panel">
+          <div>
+            <span class="shop-label">Review queue</span>
+            <h3>Latest local submissions</h3>
+            <p>
+              Use this to test the workflow now. The production version should add approve, reject,
+              edit, publish, and export controls after admin login is locked down.
+            </p>
+          </div>
+          <button class="ghost-button admin-refresh-button" type="button">Refresh dashboard</button>
+          <div class="admin-review-list" aria-live="polite"></div>
         </div>
       </section>
 

@@ -21,6 +21,10 @@ const eventSubmitForm = document.querySelector(".event-submit-form");
 const eventSubmitStatus = document.querySelector(".event-submit-status");
 const businessInquiryForm = document.querySelector(".business-inquiry-form");
 const businessInquiryStatus = document.querySelector(".business-inquiry-status");
+const djClaimForm = document.querySelector(".dj-claim-form");
+const djClaimStatus = document.querySelector(".dj-claim-status");
+const adminRefreshButton = document.querySelector(".admin-refresh-button");
+const adminReviewList = document.querySelector(".admin-review-list");
 const localEventDetails = document.querySelector(".local-event-details");
 const profileForm = document.querySelector(".profile-form");
 const oauthButtons = document.querySelectorAll(".oauth-button");
@@ -149,6 +153,89 @@ function saveLocalRecord(key, payload) {
   const existingRecords = JSON.parse(window.localStorage.getItem(key) || "[]");
   existingRecords.push({ ...payload, savedAt: new Date().toISOString() });
   window.localStorage.setItem(key, JSON.stringify(existingRecords));
+}
+
+function getLocalRecords(key) {
+  try {
+    return JSON.parse(window.localStorage.getItem(key) || "[]");
+  } catch {
+    return [];
+  }
+}
+
+function setAdminCount(key, value) {
+  document.querySelectorAll(`[data-admin-count="${key}"]`).forEach((element) => {
+    element.textContent = value;
+  });
+}
+
+function appendAdminItem(fragment, label, title, meta) {
+  const article = document.createElement("article");
+  const badge = document.createElement("span");
+  const heading = document.createElement("strong");
+  const copy = document.createElement("p");
+
+  badge.textContent = label;
+  heading.textContent = title || "Untitled";
+  copy.textContent = meta || "No extra details yet.";
+
+  article.append(badge, heading, copy);
+  fragment.append(article);
+}
+
+function renderAdminDashboard() {
+  const waitlist = getLocalRecords("sameSetWaitlist");
+  const events = getLocalRecords("sameSetEventSubmissions");
+  const partners = getLocalRecords("sameSetBusinessInquiries");
+  const djs = getLocalRecords("sameSetDjClaims");
+
+  setAdminCount("waitlist", waitlist.length);
+  setAdminCount("events", events.length);
+  setAdminCount("partners", partners.length);
+  setAdminCount("djs", djs.length);
+  setAdminCount("tickets", ticketClicks);
+
+  if (!adminReviewList) {
+    return;
+  }
+
+  const fragment = document.createDocumentFragment();
+  const latestItems = [
+    ...djs.map((item) => ({
+      label: "DJ claim",
+      title: item.dj_name,
+      meta: `${item.market || "Market TBD"} - ${item.primary_genre || "Genre TBD"} - ${item.email || "No email"}`,
+      savedAt: item.savedAt,
+    })),
+    ...events.map((item) => ({
+      label: "Event",
+      title: item.event_name,
+      meta: `${item.venue || "Venue TBD"} - ${item.city || "City TBD"} - ${item.email || "No email"}`,
+      savedAt: item.savedAt,
+    })),
+    ...partners.map((item) => ({
+      label: "Partner",
+      title: item.business_name,
+      meta: `${item.business_type || "Type TBD"} - ${item.city || "City TBD"} - ${item.email || "No email"}`,
+      savedAt: item.savedAt,
+    })),
+    ...waitlist.map((item) => ({
+      label: "Waitlist",
+      title: item.display_name || item.email,
+      meta: `${item.city || "City TBD"} - ${item.intent || "Intent TBD"} - ${item.favorite_djs || "DJs TBD"}`,
+      savedAt: item.savedAt,
+    })),
+  ]
+    .sort((a, b) => new Date(b.savedAt || 0) - new Date(a.savedAt || 0))
+    .slice(0, 8);
+
+  if (!latestItems.length) {
+    appendAdminItem(fragment, "Ready", "No local submissions yet", "Submit a DJ claim, event, partner request, or waitlist entry to test this queue.");
+  } else {
+    latestItems.forEach((item) => appendAdminItem(fragment, item.label, item.title, item.meta));
+  }
+
+  adminReviewList.replaceChildren(fragment);
 }
 
 function isSupabaseConfigured() {
@@ -442,6 +529,7 @@ waitlistForm?.addEventListener("submit", async (event) => {
 
     showToast("Beta spot saved.");
     waitlistForm.reset();
+    renderAdminDashboard();
   } catch (error) {
     const duplicateEmail = error?.code === "23505";
     setStatus(
@@ -488,6 +576,7 @@ eventSubmitForm?.addEventListener("submit", async (event) => {
 
     showToast("Local event submitted.");
     eventSubmitForm.reset();
+    renderAdminDashboard();
   } catch (error) {
     setStatus(eventSubmitStatus, "Could not submit yet. Check the Supabase table and RLS policy.", "error");
   }
@@ -527,9 +616,62 @@ businessInquiryForm?.addEventListener("submit", async (event) => {
 
     showToast("Business showcase request submitted.");
     businessInquiryForm.reset();
+    renderAdminDashboard();
   } catch (error) {
     setStatus(businessInquiryStatus, "Could not submit yet. Check the Supabase table and RLS policy.", "error");
   }
+});
+
+djClaimForm?.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const data = new FormData(djClaimForm);
+  const payload = {
+    contact_name: String(data.get("contactName") || "").trim(),
+    email: String(data.get("email") || "").trim(),
+    dj_name: String(data.get("djName") || "").trim(),
+    market: String(data.get("market") || "").trim(),
+    tier: String(data.get("tier") || "").trim(),
+    primary_genre: String(data.get("primaryGenre") || "").trim(),
+    music_url: String(data.get("musicUrl") || "").trim(),
+    instagram_url: String(data.get("instagramUrl") || "").trim(),
+    booking_email: String(data.get("bookingEmail") || "").trim(),
+    upcoming_gigs: String(data.get("upcomingGigs") || "").trim(),
+    bio: String(data.get("bio") || "").trim(),
+    source: "public_dj_claim_form",
+  };
+
+  if (!payload.contact_name || !payload.email || !payload.dj_name) {
+    setStatus(djClaimStatus, "Add your name, email, and DJ name.", "error");
+    return;
+  }
+
+  setStatus(djClaimStatus, "Saving DJ profile claim...");
+
+  try {
+    const result = await insertSupabaseRow("dj_claims", payload);
+
+    if (result.synced) {
+      setStatus(djClaimStatus, "Submitted. It will go into the DJ profile review queue.", "success");
+    } else {
+      saveLocalRecord("sameSetDjClaims", payload);
+      setStatus(djClaimStatus, "Saved in this browser. Add the dj_claims table to sync claims.", "success");
+    }
+
+    showToast("DJ profile claim submitted.");
+    djClaimForm.reset();
+    renderAdminDashboard();
+  } catch (error) {
+    saveLocalRecord("sameSetDjClaims", payload);
+    setStatus(djClaimStatus, "Saved in this browser. Run the dj_claims schema to sync claims to Supabase.", "success");
+    showToast("DJ profile claim saved locally.");
+    djClaimForm.reset();
+    renderAdminDashboard();
+  }
+});
+
+adminRefreshButton?.addEventListener("click", () => {
+  renderAdminDashboard();
+  showToast("Founder dashboard refreshed.");
 });
 
 document.querySelectorAll(".buddy-button").forEach((button) => {
@@ -687,5 +829,6 @@ profileForm?.addEventListener("change", updateProfilePreview);
 
 applyFilters();
 renderTicketClicks();
+renderAdminDashboard();
 updateAuthStatus();
 updateProfilePreview();
