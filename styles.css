@@ -2502,6 +2502,27 @@ select option {
   gap: 12px;
 }
 
+.admin-email-login {
+  display: grid;
+  gap: 6px;
+  min-width: min(260px, 100%);
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.admin-email-login input {
+  min-height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0 12px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--ink);
+  font: inherit;
+  text-transform: none;
+}
+
 .admin-app {
   display: grid;
   gap: 22px;

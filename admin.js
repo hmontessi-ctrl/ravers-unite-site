@@ -3,6 +3,8 @@ const authStatus = document.querySelector(".admin-auth-status");
 const loginPanel = document.querySelector(".admin-login-panel");
 const adminApp = document.querySelector(".admin-app");
 const googleLoginButton = document.querySelector(".admin-google-login");
+const emailLoginButton = document.querySelector(".admin-email-link");
+const emailLoginInput = document.querySelector(".admin-email-input");
 const signOutButton = document.querySelector(".admin-sign-out");
 const userEmailLabel = document.querySelector(".admin-user-email");
 const refreshButton = document.querySelector(".admin-refresh");
@@ -196,6 +198,36 @@ async function signInWithGoogle() {
   });
 }
 
+async function sendEmailLink() {
+  const client = getAdminClient();
+  const email = emailLoginInput?.value.trim();
+
+  if (!client) {
+    setAuthStatus("Supabase is not configured yet.", "error");
+    return;
+  }
+
+  if (!email) {
+    setAuthStatus("Add your admin email first.", "error");
+    return;
+  }
+
+  setAuthStatus("Sending admin sign-in link...");
+  const { error } = await client.auth.signInWithOtp({
+    email,
+    options: {
+      emailRedirectTo: `${window.location.origin}${window.location.pathname}`,
+    },
+  });
+
+  if (error) {
+    setAuthStatus(error.message || "Could not send the admin email link.", "error");
+    return;
+  }
+
+  setAuthStatus("Check your email for the SameSet admin sign-in link.", "success");
+}
+
 async function signOut() {
   const client = getAdminClient();
   if (client) await client.auth.signOut();
@@ -338,6 +370,7 @@ async function updateRecordStatus(recordId, status) {
 }
 
 googleLoginButton?.addEventListener("click", signInWithGoogle);
+emailLoginButton?.addEventListener("click", sendEmailLink);
 signOutButton?.addEventListener("click", signOut);
 refreshButton?.addEventListener("click", loadAllQueues);
 

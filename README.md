@@ -67,7 +67,7 @@ The public deployment repo contains only the website files. This main product re
 - `styles.css` - app styles
 - `script.js` - prototype interactions
 - `admin.html` - private Supabase Auth admin dashboard
-- `admin.js` - admin login, queue loading, and approve/reject actions
+- `admin.js` - admin login with Google or email magic link, queue loading, and approve/reject actions
 - `supabase/schema.sql` - Supabase database tables, triggers, and RLS policies
 - `supabase-config.js` - public browser config for Supabase URL and anon key
 - `assets/pulsecrew/hero-rave-community.png` - hero image
@@ -129,3 +129,5 @@ event submission, and profile data in the browser's local storage.
 Google login still needs a Google Cloud OAuth Client ID and Client Secret.
 Apple login still needs an Apple Developer account, Service ID, Team ID, Key ID, and private key.
 Add those provider credentials in Supabase Dashboard -> Authentication -> Providers.
+
+Admin login can use the email magic-link fallback while Google OAuth is being configured.
