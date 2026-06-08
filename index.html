@@ -437,6 +437,14 @@
           <button type="button">DICE</button>
           <button type="button">Verified crews</button>
         </div>
+        <div class="live-content-panel approved-events-panel">
+          <div>
+            <p class="eyebrow">Live approved events</p>
+            <h3>Approved events from the admin dashboard appear here.</h3>
+            <p class="live-content-status" data-live-status="events">Checking Supabase for approved events...</p>
+          </div>
+          <div class="event-grid approved-event-grid" aria-live="polite"></div>
+        </div>
         <div class="event-grid">
           <article class="event-card hot" data-genre="house techno" data-intent="crew dating hookups friends">
             <div class="event-date">
@@ -1057,6 +1065,14 @@
                 <option value="greenhose">Greenhose</option>
               </select>
               <p>Pick a DJ to preview the profile card users would open in the app.</p>
+            </div>
+            <div class="live-content-panel approved-djs-panel">
+              <div>
+                <p class="eyebrow">Live approved DJs</p>
+                <h3>Approved DJ profiles from the admin dashboard appear here.</h3>
+                <p class="live-content-status" data-live-status="djs">Checking Supabase for approved DJs...</p>
+              </div>
+              <div class="dj-directory approved-dj-grid" aria-live="polite"></div>
             </div>
             <div class="dj-directory dj-directory-single">
               <article class="dj-card dj-dropdown-card featured-dj" data-card-group="local-djs" data-card-item="dj-sleaze">

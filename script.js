@@ -25,6 +25,10 @@ const djClaimForm = document.querySelector(".dj-claim-form");
 const djClaimStatus = document.querySelector(".dj-claim-status");
 const adminRefreshButton = document.querySelector(".admin-refresh-button");
 const adminReviewList = document.querySelector(".admin-review-list");
+const approvedEventGrid = document.querySelector(".approved-event-grid");
+const approvedDjGrid = document.querySelector(".approved-dj-grid");
+const liveEventStatus = document.querySelector('[data-live-status="events"]');
+const liveDjStatus = document.querySelector('[data-live-status="djs"]');
 const localEventDetails = document.querySelector(".local-event-details");
 const profileForm = document.querySelector(".profile-form");
 const oauthButtons = document.querySelectorAll(".oauth-button");
@@ -283,6 +287,177 @@ async function getCurrentUser() {
 
   const { data } = await client.auth.getUser();
   return data?.user || null;
+}
+
+function setLiveStatus(element, message) {
+  if (element) {
+    element.textContent = message;
+  }
+}
+
+function makePublicElement(tag, className, text) {
+  const element = document.createElement(tag);
+  if (className) element.className = className;
+  if (text) element.textContent = text;
+  return element;
+}
+
+function formatPublicDate(value) {
+  if (!value) return ["Live", "+"];
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return ["Live", "+"];
+  return [
+    date.toLocaleDateString("en-US", { month: "short" }),
+    date.toLocaleDateString("en-US", { day: "2-digit" }),
+  ];
+}
+
+function getInitials(name) {
+  return String(name || "")
+    .split(/\s+/)
+    .filter(Boolean)
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 3)
+    .toUpperCase() || "+";
+}
+
+function renderApprovedEventCard(eventRecord) {
+  const card = makePublicElement("article", "event-card hot");
+  card.dataset.genre = (eventRecord.genres || []).join(" ").toLowerCase();
+  card.dataset.intent = "crew dating hookups friends";
+
+  const [month, day] = formatPublicDate(eventRecord.starts_at);
+  const dateBox = makePublicElement("div", "event-date");
+  dateBox.append(makePublicElement("span", "", month), makePublicElement("strong", "", day));
+
+  const body = makePublicElement("div");
+  body.append(makePublicElement("p", "tag", "Admin approved"));
+  body.append(makePublicElement("h3", "", eventRecord.title));
+  body.append(
+    makePublicElement(
+      "p",
+      "",
+      [eventRecord.venue_name, eventRecord.city, (eventRecord.dj_names || []).join(", ")].filter(Boolean).join(" - ") ||
+        "Approved SameSet event.",
+    ),
+  );
+
+  const avatarStack = makePublicElement("div", "avatar-stack");
+  avatarStack.setAttribute("aria-label", "Event tags");
+  [eventRecord.city, ...(eventRecord.genres || []), ...(eventRecord.dj_names || [])].slice(0, 4).forEach((item) => {
+    avatarStack.append(makePublicElement("span", "", getInitials(item)));
+  });
+  body.append(avatarStack);
+
+  const actions = makePublicElement("div", "event-actions");
+  const going = makePublicElement("button", "ghost-button join-button", "Going");
+  going.type = "button";
+  actions.append(going);
+
+  if (eventRecord.ticket_url) {
+    const link = makePublicElement("a", "ticket-link", "Tickets");
+    link.href = eventRecord.ticket_url;
+    link.target = "_blank";
+    link.rel = "noopener";
+    link.dataset.event = eventRecord.title;
+    actions.append(link);
+  } else {
+    actions.append(makePublicElement("span", "live-source-badge", "No ticket link yet"));
+  }
+
+  card.append(dateBox, body, actions);
+  return card;
+}
+
+function renderApprovedDjCard(dj) {
+  const card = makePublicElement("article", "dj-card dj-dropdown-card");
+  const avatar = makePublicElement("div", "dj-avatar cyan", getInitials(dj.dj_name));
+  const body = makePublicElement("div");
+  body.append(makePublicElement("span", "shop-label", [dj.tier, (dj.market || []).join(", ")].filter(Boolean).join(" - ") || "Approved DJ"));
+  body.append(makePublicElement("h3", "", dj.dj_name));
+  body.append(
+    makePublicElement(
+      "p",
+      "",
+      [dj.primary_genre, dj.subgenre, dj.style_description].filter(Boolean).join(" / ") || "Approved SameSet DJ profile.",
+    ),
+  );
+
+  const meta = makePublicElement("div", "club-meta");
+  [dj.primary_genre, ...(dj.vibe_tags || []), "Follow DJ"].filter(Boolean).slice(0, 3).forEach((item) => {
+    meta.append(makePublicElement("span", "", item));
+  });
+  body.append(meta);
+
+  const links = makePublicElement("div", "profile-link-row");
+  [
+    ["Music", dj.soundcloud_url || dj.spotify_url || dj.homepage_url],
+    ["Instagram", dj.instagram_url],
+    ["Profile", dj.homepage_url],
+  ].forEach(([label, href]) => {
+    if (!href) return;
+    const link = makePublicElement("a", "", label);
+    link.href = href;
+    link.target = "_blank";
+    link.rel = "noopener";
+    links.append(link);
+  });
+
+  if (!links.children.length) {
+    const claimLink = makePublicElement("a", "", "Claim links");
+    claimLink.href = "#dj-claim";
+    links.append(claimLink);
+  }
+
+  card.append(avatar, body, links);
+  return card;
+}
+
+async function loadApprovedPublicContent() {
+  const client = getSupabaseClient();
+
+  if (!client) {
+    setLiveStatus(liveEventStatus, "Supabase is not connected in this browser yet.");
+    setLiveStatus(liveDjStatus, "Supabase is not connected in this browser yet.");
+    return;
+  }
+
+  try {
+    const [{ data: events, error: eventsError }, { data: djs, error: djsError }] = await Promise.all([
+      client
+        .from("events")
+        .select("title,city,venue_name,starts_at,genres,dj_names,ticket_url,source")
+        .eq("status", "approved")
+        .order("starts_at", { ascending: true, nullsFirst: false })
+        .limit(6),
+      client
+        .from("djs")
+        .select("dj_name,market,tier,primary_genre,subgenre,style_description,vibe_tags,homepage_url,instagram_url,soundcloud_url,spotify_url")
+        .eq("status", "approved")
+        .order("created_at", { ascending: false })
+        .limit(6),
+    ]);
+
+    if (eventsError) throw eventsError;
+    if (djsError) throw djsError;
+
+    approvedEventGrid?.replaceChildren(...(events || []).map(renderApprovedEventCard));
+    approvedDjGrid?.replaceChildren(...(djs || []).map(renderApprovedDjCard));
+
+    setLiveStatus(
+      liveEventStatus,
+      events?.length ? `${events.length} approved event${events.length === 1 ? "" : "s"} live from Supabase.` : "No approved events yet. Approve an event in admin to publish it here.",
+    );
+    setLiveStatus(
+      liveDjStatus,
+      djs?.length ? `${djs.length} approved DJ profile${djs.length === 1 ? "" : "s"} live from Supabase.` : "No approved DJs yet. Approve a DJ claim in admin to publish it here.",
+    );
+  } catch (error) {
+    setLiveStatus(liveEventStatus, "Approved events could not load yet. Check the public events policy.");
+    setLiveStatus(liveDjStatus, "Approved DJs could not load yet. Check the public DJs policy.");
+    console.warn("Approved public content failed to load:", error);
+  }
 }
 
 async function updateAuthStatus() {
@@ -830,5 +1005,6 @@ profileForm?.addEventListener("change", updateProfilePreview);
 applyFilters();
 renderTicketClicks();
 renderAdminDashboard();
+loadApprovedPublicContent();
 updateAuthStatus();
 updateProfilePreview();

@@ -25,6 +25,7 @@ Tagline:
 - DJ claim form for artists to submit music links, socials, booking info, and upcoming gigs for review
 - Founder dashboard preview for waitlist, event submissions, partner requests, DJ claims, and ticket-click proof
 - Private admin dashboard at `admin.html` for approved founders to review queues and approve/reject submissions
+- Admin-approved DJ claims and event submissions publish safe public records into `djs` and `events`
 - Ticket attribution concept
 - Marketplace and sticker merch section
 - Stemulator partner section for upcoming producers
@@ -85,7 +86,7 @@ This is currently a static prototype. The next production steps are:
 - Run `supabase/schema.sql` in Supabase SQL Editor
 - Add the project URL and public anon key to `supabase-config.js`
 - Enable Google and Apple providers in Supabase Auth
-- Test waitlist, event submissions, ticket clicks, profile save, and admin review queues
+- Test waitlist, event submissions, ticket clicks, profile save, admin review queues, and approved public content
 - Add your founder email to `admin_users`
 - Live event feed
 - Real ticket purchase attribution

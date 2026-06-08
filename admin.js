@@ -17,6 +17,7 @@ let adminClient;
 let currentUser;
 let activeQueue = "waitlist";
 let activeStatus = "all";
+let queueRowsCache = {};
 
 const queueConfig = {
   waitlist: {
@@ -124,6 +125,27 @@ function formatDate(value) {
 
 function joinContact(name, email) {
   return [name, email].filter(Boolean).join(" - ");
+}
+
+function splitList(value) {
+  return String(value || "")
+    .split(/[,|/]+/)
+    .map((item) => item.trim())
+    .filter(Boolean);
+}
+
+function makeInitials(name) {
+  return String(name || "")
+    .split(/\s+/)
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 3)
+    .toUpperCase();
+}
+
+function eventDateToIso(value) {
+  if (!value) return null;
+  return new Date(`${value}T20:00:00`).toISOString();
 }
 
 function makeElement(tag, className, text) {
@@ -257,6 +279,7 @@ async function loadAllQueues() {
       Object.entries(queueConfig).map(async ([key, config]) => [key, await fetchQueueRows(config)])
     );
     const queueRows = Object.fromEntries(entries);
+    queueRowsCache = queueRows;
 
     Object.entries(queueRows).forEach(([key, rows]) => {
       const metric = document.querySelector(`[data-admin-total="${queueConfig[key].totalKey}"]`);
@@ -350,8 +373,18 @@ async function updateRecordStatus(recordId, status) {
   const client = getAdminClient();
   const config = queueConfig[activeQueue];
   if (!config?.actions || !currentUser) return;
+  const record = queueRowsCache[activeQueue]?.find((row) => row.id === recordId);
 
   setError("");
+
+  if (status === "approved") {
+    const publishError = await publishApprovedRecord(activeQueue, record);
+    if (publishError) {
+      setError(publishError);
+      return;
+    }
+  }
+
   const { error } = await client
     .from(config.table)
     .update({
@@ -367,6 +400,65 @@ async function updateRecordStatus(recordId, status) {
   }
 
   await loadAllQueues();
+}
+
+async function publishApprovedRecord(queue, record) {
+  if (!record) {
+    return "Could not find this record in the current review queue. Refresh and try again.";
+  }
+
+  if (queue === "djs") {
+    return publishApprovedDj(record);
+  }
+
+  if (queue === "events") {
+    return publishApprovedEvent(record);
+  }
+
+  return "";
+}
+
+async function publishApprovedDj(record) {
+  const client = getAdminClient();
+  const payload = {
+    source_claim_id: record.id,
+    dj_name: record.dj_name,
+    market: splitList(record.market),
+    tier: record.tier || "Local",
+    primary_genre: record.primary_genre || "",
+    subgenre: "",
+    style_description: record.bio || `${record.primary_genre || "Electronic"} DJ in ${record.market || "the SameSet scene"}.`,
+    vibe_tags: splitList(record.primary_genre),
+    best_venue_fit: [],
+    similar_artists: [],
+    homepage_url: record.music_url || "",
+    instagram_url: record.instagram_url || "",
+    soundcloud_url: record.music_url || "",
+    spotify_url: "",
+    status: "approved",
+  };
+
+  const { error } = await client.from("djs").upsert(payload, { onConflict: "source_claim_id" });
+  return error ? `DJ approved, but public profile publish failed: ${error.message}` : "";
+}
+
+async function publishApprovedEvent(record) {
+  const client = getAdminClient();
+  const payload = {
+    source_submission_id: record.id,
+    title: record.event_name,
+    city: record.city,
+    venue_name: record.venue,
+    starts_at: eventDateToIso(record.event_date),
+    genres: splitList(record.genres),
+    dj_names: splitList(record.dj_names),
+    ticket_url: record.ticket_url || "",
+    source: record.source || "promoter_submission",
+    status: "approved",
+  };
+
+  const { error } = await client.from("events").upsert(payload, { onConflict: "source_submission_id" });
+  return error ? `Event approved, but public event publish failed: ${error.message}` : "";
 }
 
 googleLoginButton?.addEventListener("click", signInWithGoogle);
